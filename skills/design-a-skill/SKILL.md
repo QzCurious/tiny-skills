@@ -1,26 +1,24 @@
 ---
 name: design-a-skill
-description: Turn an intention to create or change a Skill into aligned authored meaning that an agent can apply reliably, and determine whether it should exist as an independent Skill. Use when proposing, designing, or revising a Skill before authoring its packaging.
+description: 將建立或修改 Skill 的意圖設計成 AI Agent 可可靠套用的 authored meaning，並判斷其是否應作為獨立 Skill。當提議、設計或修訂 Skill，且尚未進入 packaging 實作時使用。
 ---
 
 # Design a Skill
 
-Use `Ground in Context` when the intended behavior cannot be understood reliably from the current input alone.
+當目前輸入不足以可靠理解預期行為時，先使用 `Ground in Context`；當預期行為、邊界或結果尚未形成共同理解時，使用 `Align Intent`。
 
-Use `Align Intent` when the intended behavior, boundary, or outcome is not already shared.
+先判斷意圖是否值得成為獨立 Skill。獨立 Skill 應有可辨識的使用時機、完整而可組合的行為責任，以及自身允許的結果或終止狀態。若意圖只補充另一個 Skill 的責任，將其併入該 Skill；若目前意義仍不足以可靠判斷，保留為 Skill Draft。
 
-Refine the intended behavior until the Skill's name and description, together with any necessary body, describe authored meaning that an agent can apply reliably.
+從 name 與 description 開始設計。讓 description 說明 Skill 定義的行為，以及應觸發它的各種實質情境；只有當 AI Agent 仍需要額外的步驟、判斷、約束或完成條件才能可靠套用時，才加入正文。
 
-Determine:
+釐清並使 authored meaning 內部一致：
 
-- what should cause the Skill to be used;
-- what behavior it defines;
-- what outcomes or terminal states it permits;
-- which existing Skills it composes;
-- whether the behavior has an independent invocation or should remain part of another Skill.
+- 什麼情況應使用此 Skill
+- 它擁有與不擁有的行為責任
+- 它允許哪些結果與終止狀態
+- 它在什麼條件下組合哪些既有 Skills
+- 它能否獨立被使用，或應留在另一個 Skill 內
 
-Start with a name and description. Add a body only when the description does not cover the Skill's complete meaning.
+將 packaging, provider-specific metadata 與其他整合決定留到 authored meaning 已對齊之後。
 
-Do not derive provider-specific metadata until the authored meaning is aligned.
-
-The Skill design is complete when its intended behavior, boundary, composition, and terminal states are aligned, and there is enough meaning to decide whether it remains a Skill Draft or becomes a Skill.
+當預期行為、邊界、組合方式與終止狀態已對齊，name、description 與必要正文足以讓 AI Agent 可靠套用，且已明確決定成為獨立 Skill、併入既有 Skill，或維持為 Skill Draft 時，即完成設計。
