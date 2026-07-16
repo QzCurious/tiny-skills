@@ -1,0 +1,22 @@
+{
+  "name": "tiny-skills",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "nub scripts/validate-skills.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "typescript": "^7.0.2",
+    "yaml": "^2.9.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "nub",
+      "version": "^0.4.2",
+      "onFail": "warn"
+    }
+  },
+  "packageManager": "nub@0.4.2"
+}
