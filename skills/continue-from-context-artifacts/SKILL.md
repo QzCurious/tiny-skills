@@ -11,6 +11,6 @@ Check their subject identity, authority, freshness, material uncertainty, and co
 
 Use `Align Intent` when recovery is materially ambiguous or when the user may be changing the subject's direction.
 
-If the recovered subject appears to have reached a terminal state, point this out and use `Align Intent` to determine whether to conclude, archive, supersede, or continue it. Otherwise, continue from the recovered state. Use `Maintain a Working Draft` for personally visible working state or `Maintain Shared WIP` for state that project participants may rely on.
+If the recovered subject appears to have reached a terminal state, point this out and use `Align Intent` to determine whether to conclude, archive, supersede, or continue it. Otherwise, continue from the recovered state using `Maintain Continuable Context`. Also use `Coordinate Shared Context` when project participants may rely on the maintained state.
 
 The subject has been continued when its recovered direction is resumed, intentionally redirected, or explicitly stopped because reliable recovery requires missing context.
