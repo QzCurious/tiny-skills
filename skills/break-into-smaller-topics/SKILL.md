@@ -1,14 +1,14 @@
 ---
 name: break-into-smaller-topics
-description: Decompose a topic into independently addressable topics and determine how the original and resulting topics should proceed. Use when a topic contains multiple concerns that would be clearer or more manageable if handled separately.
+description: 將一個主題拆成可獨立處理的較小主題，並決定原主題與各新主題的後續方向。當一個主題混合多個可分開處理的事項時使用。
 ---
 
-# Break into smaller topics
+# Break into Smaller Topics
 
-如果尚未做過 `Ground in Context`，先做 `Ground in Context`。
+當目前輸入不足以可靠理解主題時，先使用 `Ground in Context`。
 
-若有必要，做 `Align Intent`。
+辨識原主題中可分開處理的事項。依每個新主題能各自擁有明確意圖、邊界與可能終止狀態的方式拆分，並保留會影響獨立處理的依賴、重疊與共同脈絡。
 
-建議如何將當前主題拆分成各個能獨立處理的主題，並建議可以怎麼處理這些獨立主題。
+提出拆分建議，說明每個主題的範圍、彼此關係、必要的處理順序與適合的後續方向。另說明原主題應保留作為統整主題、由新主題取代、延後或終止。
 
-然後使用 `Align Intent` 來確認並結論當前主題與各獨立主題該何去何從；到此視為終止狀態。
+使用 `Align Intent` 對齊拆分邊界、主題關係與後續方向。當每個主題都能被獨立辨識與處理，且原主題的去向已明確，即完成此 Skill；依已對齊的方向另行處理各主題。
