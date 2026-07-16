@@ -1,10 +1,14 @@
 ---
 name: coarse-to-well-specified
-description: Expand rough input into a sufficiently specified explanation by clarifying its intent, boundaries, assumptions, and implications while preserving the original direction. Use when input is meaningful but too coarse, implicit, or underspecified to continue reliably.
+description: 將粗略輸入展開為足以可靠繼續的明確說明，釐清其意圖、邊界、假設與影響，同時保留原始方向。當輸入已有可辨識的方向，但仍需猜測會實質改變結果的內容才能繼續時使用。
 ---
 
 # Coarse to Well-Specified
 
-有必要的話先使用 `Ground in Context`。
+當目前輸入不足以可靠理解相關脈絡時，先使用 `Ground in Context`。
 
-Expand rough input into a sufficiently specified explanation by clarifying its intent, boundaries, assumptions, and implications while preserving the original direction.
+先辨識並固定原始方向。把已知內容與可由脈絡合理推得的內容轉成明確陳述，補足後續工作所需的意圖、預期結果、邊界、限制、重要假設與影響；將推論標示為假設。
+
+只展開到有效下一步能可靠進行所需的程度。當多個合理理解會導向實質不同的結果，而現有脈絡不足以判定時，使用 `Align Intent`。
+
+產出一份連貫的明確說明，區分已確定內容、採用的假設與仍待決事項。當後續工作能沿原始方向採取有效下一步，且所有會實質改變結果的決定都已有結論或明確的解決路徑時，即完成此 Skill。
