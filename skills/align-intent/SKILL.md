@@ -5,4 +5,4 @@ description: Establish a shared understanding of intent before deciding how a to
 
 # Align Intent
 
-有必要的話先使用 `Collect Relevant Context`，不要單純只從對方的語句分析。
+有必要的話先使用 `Ground in Context`，不要單純只從對方的語句分析。

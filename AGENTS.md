@@ -6,11 +6,9 @@ Before changing a Skill:
 
 - Read `CONTEXT.md` for the shared language.
 - Read `OPERATING-MODEL.md` for authoring principles.
-- Treat a Skill's title and body as its authored meaning.
 - Keep each Skill as small as its current meaning allows.
+- Start with a name and description. Add a body only when the description does not cover the Skill's complete meaning.
 - Do not add behavior that has not been aligned with the user.
-- Keep title-only proposals in `drafts/`.
-- Promote a draft to `skills/` only after it has a meaningful body.
-- Treat `name` and `description` as standard discovery metadata derived from the Skill's title and body.
+- Keep proposals in `drafts/` until their description or body has enough meaning for an agent to apply reliably.
 - Add provider-specific metadata, such as `agents/openai.yaml`, only when a concrete integration requires it.
 - Validate every changed Skill.

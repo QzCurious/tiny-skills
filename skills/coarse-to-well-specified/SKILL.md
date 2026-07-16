@@ -5,6 +5,6 @@ description: Expand rough input into a sufficiently specified explanation by cla
 
 # Coarse to Well-Specified
 
-有必要的話先使用 `Collect Relevant Context`。
+有必要的話先使用 `Ground in Context`。
 
 Expand rough input into a sufficiently specified explanation by clarifying its intent, boundaries, assumptions, and implications while preserving the original direction.

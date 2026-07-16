@@ -67,10 +67,6 @@ async function validateSkill(skillName: string): Promise<void> {
     throw new Error(`${skillFile}: description must be a non-empty string`);
   }
 
-  if (match[2].trim() === "") {
-    throw new Error(`${skillFile}: body must not be empty`);
-  }
-
   await validateOptionalOpenAiMetadata(skillDirectory);
   console.log(`valid: ${path.relative(process.cwd(), skillDirectory)}`);
 }

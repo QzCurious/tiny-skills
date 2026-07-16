@@ -5,7 +5,7 @@ description: Decompose a topic into independently addressable topics and determi
 
 # Break into smaller topics
 
-如果尚未做過 `Collect Relevant Context`，先做 `Collect Relevant Context`。
+如果尚未做過 `Ground in Context`，先做 `Ground in Context`。
 
 若有必要，做 `Align Intent`。
 

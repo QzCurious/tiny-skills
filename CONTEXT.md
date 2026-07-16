@@ -5,10 +5,10 @@ A shared language for describing composable agent behavior and its outcomes.
 ## Language
 
 **Skill**:
-A composable definition of agent behavior consisting of a title and a body. Its body may describe an action, protocol, constraint, transformation, judgment, or terminal state, and may begin small and evolve through use.
+A composable definition of agent behavior consisting of a name, a description, and an optional body. Its description may carry its complete authored meaning when that is enough for an agent to apply it reliably. Its body extends that meaning when necessary. Its authored meaning may describe an action, protocol, constraint, transformation, judgment, or terminal state, and may begin small and evolve through use.
 
 **Skill Draft**:
-A proposed Skill that has a title but does not yet have a body with enough meaning for an agent to apply reliably.
+A proposed Skill that does not yet have enough authored meaning in its description or body for an agent to apply reliably.
 
 **Context Artifact**:
 A persistent representation of context that can be revisited or continued without prescribing a storage mechanism. Prefer a more specific subtype whenever one is known.
