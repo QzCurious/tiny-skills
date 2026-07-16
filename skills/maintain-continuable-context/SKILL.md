@@ -1,18 +1,18 @@
 ---
 name: maintain-continuable-context
-description: Maintain the meaningful current context of a subject so it remains continuable across conversations. Use when a subject needs persistent, recoverable current state, whether personal or shared.
+description: 維護一個主題有意義的 current context，使其能跨 conversation 繼續。當個人或共享的主題需要 persistent、recoverable 的 current state 時使用。
 ---
 
 # Maintain Continuable Context
 
-Use `Ground in Context` when the subject cannot be understood reliably from the current conversation and available Context Artifacts.
+當目前 conversation 與可用的 Context Artifacts 不足以可靠理解主題時，先使用 `Ground in Context`。
 
-Identify the subject and the minimum Context Artifacts needed to recover its original intent, current state, material rationale and constraints, uncertainty, open questions, valid next steps, and possible terminal states. Recommend an Artifact Carrier suited to the intended audience, authority, collaboration needs, history requirements, and available environment.
+辨識主題，以及使其 Continuable 所需的最少 Context Artifacts。依 artifact 的 audience、authority、collaboration needs、history requirements 與可用環境選擇或建議 Artifact Carrier，同時維持 artifact 跨 carrier 的意義。
 
-Use `Align Intent` to align with the user on the intended content and carrier before creating or updating an artifact.
+建立或更新 Context Artifact 前，使用 `Align Intent` 與 User 對齊預定寫入的內容種類、範圍與 Artifact Carrier。
 
-Maintain the artifacts as the latest meaningful state of the subject. Derive them from conversations and other process history by selecting only content needed to interpret or continue the subject; leave incidental process in its original surface.
+將 Context Artifacts 維持為主題最新且有意義的 current state，保留還原原始意圖、理解目前狀態、採取有效下一步與辨識可能終止狀態所需的內容。把 conversation、comments 與其他 activity history 視為可取材的過程脈絡，只將持續影響主題解讀或後續行動的內容納入 Context Artifacts。
 
-When the subject appears to have reached a terminal state, point this out and use `Align Intent` to determine whether to conclude, archive, supersede, or continue it.
+當主題可能已到達終止狀態時，指出此情況並使用 `Align Intent`，決定要結束、封存、取代或繼續。
 
-The maintained context is continuable when another conversation can recover the subject and a valid way to proceed without material distortion.
+當另一個 conversation 能從 Context Artifacts 還原主題的原始意圖、有效的繼續方式與可能終止狀態，且不會產生實質扭曲時，即完成維護。
