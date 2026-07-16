@@ -1,14 +1,23 @@
-# Repository Guidance
+# 專案指引
 
-This repository develops a personal agent operating model from a shared language and composable Skills.
+本專案以共享語言與可組合的 Skill，發展個人 agent operating model
 
-Before changing a Skill:
+## 開發立場
 
-- Read `CONTEXT.md` for the shared language.
-- Read `OPERATING-MODEL.md` for authoring principles.
-- Keep each Skill as small as its current meaning allows.
-- Start with a name and description. Add a body only when the description does not cover the Skill's complete meaning.
-- Do not add behavior that has not been aligned with the user.
-- Keep proposals in `drafts/` until their description or body has enough meaning for an agent to apply reliably.
-- Add provider-specific metadata, such as `agents/openai.yaml`, only when a concrete integration requires it.
-- Validate every changed Skill.
+本專案目前處於積極開發與規劃階段。進行溝通、規劃、決策、設計、實作與產出時，一律從期望的當前狀態出發；凡偏離既有行為之處，皆視為 clean break。無須維持向下相容，也不要提出或設計 migration、compatibility shim、deprecation path，或針對既有行為的 fallback
+
+## 語言
+
+以台灣繁體中文為優先。必要時使用英文術語，以維持定義精準，或與不同技術社群對齊
+
+當 User 的意圖或寫入授權不明確時，AI Agent 應先確認再進行寫入；明確的修改指示可直接執行。不得將討論、徵詢意見或方向校正自行視為寫入授權
+
+修改 Skill 前:
+
+- 閱讀 `CONTEXT.md`，理解共享語言
+- 閱讀 `OPERATING-MODEL.md`，理解編寫原則
+- 在當前意義允許的範圍內，讓每個 Skill 保持最小
+- 從 `name` 與 `description` 開始。僅在 `description` 無法涵蓋 Skill 的完整意義時，才加入正文
+- 提案應保留在 `drafts/`，直到其 `description` 或正文具有足夠意義，能讓 agent 可靠地套用
+- 僅在具體整合確有需要時，才加入 provider-specific metadata，例如 `agents/openai.yaml`
+- 採用 dogfooding: 直接以本專案的 operating model 執行本專案工作，並透過實際使用自我驗證每個修改過的 Skill
