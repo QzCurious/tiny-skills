@@ -4,6 +4,13 @@ import { parseDocument } from "yaml";
 
 const skillsDirectory = path.resolve("skills");
 const skillNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const stableFrontmatterFields = new Set([
+  "compatibility",
+  "description",
+  "license",
+  "metadata",
+  "name",
+]);
 
 async function parseYaml(source: string, file: string): Promise<unknown> {
   const document = parseDocument(source);
@@ -13,23 +20,6 @@ async function parseYaml(source: string, file: string): Promise<unknown> {
   }
 
   return document.toJS();
-}
-
-async function validateOptionalOpenAiMetadata(skillDirectory: string): Promise<void> {
-  const file = path.join(skillDirectory, "agents", "openai.yaml");
-  let source: string;
-
-  try {
-    source = await readFile(file, "utf8");
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-      return;
-    }
-
-    throw error;
-  }
-
-  await parseYaml(source, file);
 }
 
 async function validateSkill(skillName: string): Promise<void> {
@@ -50,24 +40,64 @@ async function validateSkill(skillName: string): Promise<void> {
 
   const record = metadata as Record<string, unknown>;
   const keys = Object.keys(record).sort();
+  const unsupportedKeys = keys.filter((key) => !stableFrontmatterFields.has(key));
 
-  if (keys.join(",") !== "description,name") {
-    throw new Error(`${skillFile}: frontmatter must contain only name and description`);
+  if (unsupportedKeys.length > 0) {
+    throw new Error(
+      `${skillFile}: unsupported or non-stable frontmatter fields: ${unsupportedKeys.join(", ")}`,
+    );
   }
 
   if (record.name !== skillName) {
     throw new Error(`${skillFile}: name must match its directory (${skillName})`);
   }
 
-  if (!skillNamePattern.test(skillName)) {
-    throw new Error(`${skillFile}: name must use lowercase letters, digits, and hyphens`);
+  if (skillName.length > 64 || !skillNamePattern.test(skillName)) {
+    throw new Error(
+      `${skillFile}: name must be at most 64 characters and use lowercase letters, digits, and single hyphens`,
+    );
   }
 
-  if (typeof record.description !== "string" || record.description.trim() === "") {
-    throw new Error(`${skillFile}: description must be a non-empty string`);
+  if (
+    typeof record.description !== "string" ||
+    record.description.trim() === "" ||
+    record.description.length > 1024
+  ) {
+    throw new Error(`${skillFile}: description must be a non-empty string of at most 1024 characters`);
   }
 
-  await validateOptionalOpenAiMetadata(skillDirectory);
+  if (
+    record.license !== undefined &&
+    (typeof record.license !== "string" || record.license.trim() === "")
+  ) {
+    throw new Error(`${skillFile}: license must be a non-empty string when provided`);
+  }
+
+  if (
+    record.compatibility !== undefined &&
+    (typeof record.compatibility !== "string" ||
+      record.compatibility.trim() === "" ||
+      record.compatibility.length > 500)
+  ) {
+    throw new Error(
+      `${skillFile}: compatibility must be a non-empty string of at most 500 characters when provided`,
+    );
+  }
+
+  if (record.metadata !== undefined) {
+    if (!record.metadata || typeof record.metadata !== "object" || Array.isArray(record.metadata)) {
+      throw new Error(`${skillFile}: metadata must be a string-to-string mapping when provided`);
+    }
+
+    const invalidMetadataKeys = Object.entries(record.metadata).filter(
+      ([key, value]) => key.length === 0 || typeof value !== "string",
+    );
+
+    if (invalidMetadataKeys.length > 0) {
+      throw new Error(`${skillFile}: metadata must be a string-to-string mapping when provided`);
+    }
+  }
+
   console.log(`valid: ${path.relative(process.cwd(), skillDirectory)}`);
 }
 
