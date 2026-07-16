@@ -1,21 +1,21 @@
-# Personal Agent Operating Model
+# 個人 Agent 運作模型
 
-A shared language for describing composable agent behavior and its outcomes.
+一套用來描述可組合 Agent 行為及其結果的共同語言。
 
-## Language
+## 共同語言
 
-**Skill**:
-A composable definition of agent behavior consisting of a name, a description, and an optional body. Its description may carry its complete authored meaning when that is enough for an agent to apply it reliably. Its body extends that meaning when necessary. Its authored meaning may describe an action, protocol, constraint, transformation, judgment, or terminal state, and may begin small and evolve through use.
+**Skill**：
+由 `name`、`description` 與選擇性的正文所構成，可組合的 Agent 行為定義。當 `description` 足以讓 Agent 可靠套用時，可以由 `description` 承載其完整的編寫意義；必要時，再由正文延伸該意義。編寫意義可以描述行動、協定、約束、轉換、判斷或終止狀態，並可從小處開始，透過使用逐步演進。
 
-**Skill Draft**:
-A proposed Skill that does not yet have enough authored meaning in its description or body for an agent to apply reliably.
+**Skill Draft**：
+一項尚未在 `description` 或正文中具備足夠編寫意義，因而無法讓 Agent 可靠套用的 Skill 提案。
 
-**Context Artifact**:
-A persistent representation of context that can be revisited or continued without prescribing a storage mechanism. Prefer a more specific subtype whenever one is known.
+**Context Artifact**：
+一種可被重新檢視或接續，且不預設儲存機制的持久脈絡表述。當已知更具體的子類型時，優先使用該子類型。
 
-A Context Artifact represents context about a subject rather than belonging to a conversation. Multiple conversations may create, consult, or maintain it, and one conversation may involve multiple Context Artifacts.
+Context Artifact 表述的是某個主題的脈絡，而非附屬於某段對話。多段對話可以建立、查閱或維護同一個 Context Artifact，而一段對話也可以涉及多個 Context Artifact。
 
-Known candidate subtypes:
+已知的候選子類型：
 
 - Knowledge Artifact
 - Decision Artifact
@@ -24,10 +24,10 @@ Known candidate subtypes:
 - Specification Artifact
 - Evidence Artifact
 
-Only write to a Context Artifact after the user is aligned with what will be written. The user must be aware of the kind and scope of content that will be written, without requiring every resulting detail or exact wording to be enumerated in advance.
+僅在 User 已對將寫入的內容取得共識後，才可寫入 Context Artifact。User 必須知悉將寫入內容的種類與範圍，但無須事先列舉產出的每項細節或確切措辭。
 
-**Artifact Carrier**:
-The storage, publication, or collaboration mechanism through which a Context Artifact is persisted and accessed. A carrier may provide separate surfaces for current state and history, but does not determine the artifact's meaning.
+**Artifact Carrier**：
+用來持久保存及存取 Context Artifact 的儲存、發布或協作機制。Artifact Carrier 可以分別提供目前狀態與歷史紀錄的介面，但不決定 Context Artifact 的意義。
 
-**Continuable**:
-A property of a subject for which the original intent, a valid way to continue, and possible terminal states can be recovered without material distortion. A subject may be a document, communication topic, task, or other ongoing concern.
+**Continuable**：
+主題的一種性質：其原始意圖、有效的接續方式及可能的終止狀態，皆可在不發生實質扭曲的情況下還原。主題可以是文件、溝通主題、任務或其他持續中的關注事項。
