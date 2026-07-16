@@ -7,5 +7,5 @@
 - Start a Skill with a name and description. Add a body only when the description does not cover its complete meaning.
 - Compose Skills when the current Skill requires them or when its stated conditions make them necessary.
 - Do not create or update a Context Artifact until the user is aligned with its intended content.
-- Choose or recommend an Artifact Carrier according to the artifact's audience, authority, collaboration needs, history requirements, and available environment while preserving the artifact's meaning across carriers.
+- Before writing, align with the user on the Artifact Carrier. When needed, recommend options according to the artifact's audience, authority, collaboration needs, history requirements, and available environment while preserving the artifact's meaning across carriers.
 - Preserve the user's original direction when refining underspecified input.

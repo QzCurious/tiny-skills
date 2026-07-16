@@ -1,18 +1,18 @@
 ---
 name: maintain-continuable-context
-description: 維護一個主題有意義的 current context，使其能跨 conversation 繼續。當個人或共享的主題需要 persistent、recoverable 的 current state 時使用。
+description: 維護一個主題經精煉的 canonical current state，使其能跨對話被可靠理解與接續。當 User 要求建立或更新承載此狀態的 Context Artifacts 時使用。
 ---
 
 # Maintain Continuable Context
 
-當目前 conversation 與可用的 Context Artifacts 不足以可靠理解主題時，先使用 `Ground in Context`。
+當現有脈絡不足以可靠理解主題時，先使用 `Ground in Context`。
 
-辨識主題，以及使其 Continuable 所需的最少 Context Artifacts。依 artifact 的 audience、authority、collaboration needs、history requirements 與可用環境選擇或建議 Artifact Carrier，同時維持 artifact 跨 carrier 的意義。
+辨識需要被延續的主題，以及承載其 canonical current state 所需的 Context Artifacts。建立或更新前，確認 User 已對齊預定寫入的內容種類、範圍與 Artifact Carrier；尚未對齊時，使用 `Align Intent`。
 
-建立或更新 Context Artifact 前，使用 `Align Intent` 與 User 對齊預定寫入的內容種類、範圍與 Artifact Carrier。
+提煉使主題得以延續的最少內容，包括 original intent、current intent、仍會影響後續行動的理解與決定、open questions、valid next moves，以及 possible terminal states。這些內容發生變化時，更新 Context Artifacts 中的 canonical current state，並移除或明確取代已失效的內容；不以保存完整對話或 activity history 為目的。
 
-將 Context Artifacts 維持為主題最新且有意義的 current state，保留還原原始意圖、理解目前狀態、採取有效下一步與辨識可能終止狀態所需的內容。把 conversation、comments 與其他 activity history 視為可取材的過程脈絡，只將持續影響主題解讀或後續行動的內容納入 Context Artifacts。
+當 current state 會被多人共同依賴時，更新前先辨識 authority、concurrent changes、既有決定與未解分歧。只將已確認且仍有效的內容表達為 settled facts；只在 attribution 仍會影響解讀或後續行動時保留它。
 
 當主題可能已到達終止狀態時，指出此情況並使用 `Align Intent`，決定要結束、封存、取代或繼續。
 
-當另一個 conversation 能從 Context Artifacts 還原主題的原始意圖、有效的繼續方式與可能終止狀態，且不會產生實質扭曲時，即完成維護。
+當後續 Agent 能從 Context Artifacts 還原 original intent、辨識 current intent、理解 current state、找出 valid next move 並辨識 possible terminal states，且不會產生實質扭曲時，即完成維護。
