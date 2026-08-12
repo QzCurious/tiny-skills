@@ -2,7 +2,7 @@
 
 本專案以共享語言與可組合的 Skill，發展個人 agent operating model
 
-共同語言以 `CONTEXT.md` 為準; Agent 的運作與 Skill 編寫原則以 `OPERATING-MODEL.md` 為準
+共同語言以 `CONTEXT.md` 與其明示引用的 canonical definitions 為準; Agent 的運作與 Skill 編寫原則以 `OPERATING-MODEL.md` 為準
 
 ## 開發立場
 
@@ -28,5 +28,12 @@
 修改 Skill 前:
 
 - 閱讀 `CONTEXT.md`，理解共享語言
+- 閱讀與該 Skill 實質相關的 canonical Property definitions
 - 閱讀 `OPERATING-MODEL.md`，理解編寫原則
 - 尚屬 Skill Draft 的提案存放於 `drafts/`; 是否構成 Skill Draft，依 `CONTEXT.md` 的定義判斷
+
+修改 Property 前:
+
+- 閱讀 `CONTEXT.md`，確認 Property 在共同語言中的定位
+- 閱讀 `OPERATING-MODEL.md`，理解 Property 與 Skill 的分工
+- 以 `properties/` 中對應檔案作為該 Property 的 canonical definition
