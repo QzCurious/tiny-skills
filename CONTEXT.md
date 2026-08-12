@@ -13,21 +13,18 @@
 **Property**:
 對一個對象可被辨識的性質或條件，不規定建立、維護或改善該性質的特定方法。Skill 可以要求、建立、維護、改善或評估 Property。
 
-**Continuable**:
-主題的一種 Property: 其原始意圖、有效的接續方式及可能的終止狀態，皆可在不發生實質扭曲的情況下還原。主題可以是文件、溝通主題、任務或其他持續中的關注事項。
+已知的 Property:
 
-**Clear Reading Path**:
-結構化內容的一種 Property: 其組織方式使預期讀者能依序建立理解並繼續閱讀，而不需要不必要地回頭重新解讀先前內容。
-
-**Well-Specified**:
-一個對象的一種 Property: 相關的下一步工作能可靠進行，而不需要猜測會實質改變結果的資訊。
+- **Continuable**: 主題可在不發生實質扭曲的情況下還原其原始意圖, 有效的接續方式與可能的終止狀態; canonical definition 見 `properties/continuable.md`
+- **Clear Reading Path**: 結構化內容能讓預期讀者依理解所需逐步建立脈絡; canonical definition 見 `properties/clear-reading-path.md`
+- **Well-Specified**: 對象的相關工作能可靠繼續, 而不需要猜測會實質改變結果的資訊; canonical definition 見 `properties/well-specified.md`
 
 **Context Artifact**:
 一種可被重新檢視或接續，且不預設儲存機制的持久脈絡表述。當已知更具體的子類型時，優先使用該子類型。
 
 Context Artifact 表述的是某個主題的脈絡，而非附屬於某段對話。多段對話可以建立、查閱或維護同一個 Context Artifact，而一段對話也可以涉及多個 Context Artifact。
 
-已知的候選子類型：
+已知的候選子類型:
 
 - Knowledge Artifact
 - Decision Artifact
