@@ -11,7 +11,7 @@ description: 將建立或修改 Skill 的意圖設計成 AI Agent 可可靠套�
 
 從 name 與 description 開始設計。讓 description 說明 Skill 定義的行為，以及應觸發它的各種實質情境；只有當 AI Agent 仍需要額外的步驟、判斷、約束或完成條件才能可靠套用時，才加入正文。
 
-組織 authored meaning 時，讓較廣泛的意圖、責任或判斷框架先為較局部的步驟、規則與約束建立解讀脈絡。依概念關係安排內容，而非機械地依執行順序或固定模板編排；正文可以依賴 name 與 description 已建立的意義，不必為了自成一體而重述它們。
+讓產出的 authored meaning 具有 `Clear Reading Path`。從 name 與 description 建立整體 orientation，再依概念關係安排必要正文; 不依固定模板或機械的執行順序編排。正文可以依賴 name 與 description 已建立的意義，不必為了自成一體而重述它們。
 
 釐清並使 authored meaning 內部一致：
 

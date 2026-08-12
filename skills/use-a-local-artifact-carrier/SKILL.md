@@ -12,7 +12,7 @@ Prefer an established project location. Otherwise suggest these locations relati
 - `.context-artifacts/<subject>.md` when one surface is sufficient;
 - `.context-artifacts/<subject>/current.md` and `history.md` when current state and history need separate surfaces.
 
-Realize the Context Artifact's required visibility, authority, current-state, and history properties through its location, permissions, synchronization, file surfaces, and version-control treatment.
+Realize the Context Artifact's visibility, authority, current-state, and history requirements through its location, permissions, synchronization, file surfaces, and version-control treatment.
 
 Use a descriptive subject name and natural-language content rather than a required schema or metadata. Preserve the artifact's meaning without deriving it from the local layout.
 
