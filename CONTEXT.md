@@ -15,7 +15,7 @@
 
 已知的 Property:
 
-- **Continuable**: 主題可在不發生實質扭曲的情況下還原其原始意圖, 有效的接續方式與可能的終止狀態; canonical definition 見 `properties/continuable.md`
+- **Continuable**: 主題目前有效的接續狀態可在 Intended Continuation 中被不失真地還原並延續; canonical definition 見 `properties/continuable.md`
 - **Clear Reading Path**: 結構化內容能讓預期讀者依理解所需逐步建立脈絡; canonical definition 見 `properties/clear-reading-path.md`
 - **Well-Specified**: 對象的相關工作能可靠繼續, 而不需要猜測會實質改變結果的資訊; canonical definition 見 `properties/well-specified.md`
 
