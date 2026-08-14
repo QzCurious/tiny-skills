@@ -1,0 +1,12 @@
+{
+  "name": "tiny-skills",
+  "version": "0.1.0",
+  "description": "Composable skills for a personal agent operating model.",
+  "repository": "https://github.com/QzCurious/tiny-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tiny Skills",
+    "shortDescription": "Composable skills for a personal agent operating model",
+    "developerName": "QzCurious"
+  }
+}
