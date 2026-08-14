@@ -2,20 +2,30 @@
 
 ## Meaning
 
-`Well-Specified` 是一個對象的一種 Property: 相關工作能可靠繼續，而不需要猜測會實質改變結果的資訊
+`Well-Specified` 是一個對象相對於預期工作與用途的一種 Property: 對該工作而言, 會實質改變結果的意義, 範圍, 條件與允許的選擇空間已足夠明確, 使工作能在既定意義內可靠進行, 而不必以猜測補足實質缺口
 
 ## Applies To
 
-適用於其說明程度會影響後續工作的對象，例如 requirement, proposal, plan, task, behavior 或其他可被進一步處理的主題
+適用於說明程度會影響後續解讀, 決策或執行的對象, 例如 requirement, proposal, plan, task, behavior, interface 或其他可被進一步處理的主題
 
 ## Satisfaction
 
-對目前相關工作而言，足以影響結果的意圖, 邊界, 限制, 假設與未決事項應已明確到可以可靠繼續，而不需要以 consequential guessing 補足缺口
+對預期工作而言, 對象應足以使執行者:
+
+- 理解相關意圖, 預期結果與邊界
+- 辨識會實質影響結果的限制, 假設, 依賴與衝突
+- 區分已定內容, 刻意保留或授權的選擇, 以及仍會阻礙工作的未決事項
+- 判斷採取的行動與產出是否仍符合既定意義和允許的選擇空間
+- 不必自行選擇未被支持, 且會實質改變結果的解讀
+
+未知事項或多種可能解法本身不違反此 Property。只要它們不影響預期工作, 或其保留方式與選擇權限已足夠明確, 對象仍可為 Well-Specified
+
+Well-Specified 應相對於具體工作判斷。同一個對象可以足以支援探索或決策, 但仍不足以支援依賴後續決定的實作
 
 ## Boundaries
 
-`Well-Specified` 不要求 exhaustive specification, 完整細節或最終定案; 它只要求對目前相關工作達到足夠的明確程度
+`Well-Specified` 不等同於 exhaustive specification, 完整細節, 最終定案, 單一解法, 無彈性, 已取得共識, 已獲批准, 正確或可行
 
-`Well-Specified` 與 `Continuable` 不同: `Continuable` 關心能否可靠還原如何繼續; `Well-Specified` 關心繼續時是否仍需要會實質改變結果的猜測
+`Well-Specified` 與 `Continuable` 不同: `Continuable` 關心跨處理邊界後能否不失真地還原如何繼續; `Well-Specified` 關心指定工作能否在不補足實質意義的情況下可靠進行
 
-此 Property 不規定細化或對齊資訊的特定方法
+此 Property 不規定細化, 研究, 對齊或決策的特定方法
