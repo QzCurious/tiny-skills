@@ -4,7 +4,9 @@
 
 `Continuable` 是一個主題相對於 Intended Continuation 的一種 Property: 在預期的暫停或交接邊界後, 接續者仍能從屆時可取得的脈絡還原主題的 `Continuation State`, 並在不發生實質扭曲的情況下繼續 Intended Work
 
-`Continuation State` 是一個主題目前有效, 且足以支援 Intended Continuation 的 canonical current-state model。它只反映仍會影響接續的內容; 不反映已不再影響接續的 origin, process history 或 discussion history
+`Continuation State` 是一個主題目前有效, 且足以支援 Intended Continuation 的 canonical current-state model; 它是一個 semantic model, 不等同於承載它的整份 representation。它只反映仍會影響接續的內容; 不反映已不再影響接續的 origin, process history 或 discussion history
+
+Issue, 文件, 對話脈絡或其他 representation 都可以使接續者取得 Continuation State
 
 ## Applies To
 
@@ -33,17 +35,23 @@ Continuation State 應提供以下 semantic coverage:
 
 這些是理解 Continuation State 的 semantic dimensions, 不是互斥欄位, 固定 heading 或必要 schema
 
+Continuation State 也必須保留各項內容目前的 authority status, 包括哪些內容是 Decisions, assumptions, Open Proposals, Open Matters 或 Agent inference。Authority status 橫跨上述 semantic dimensions, 不是獨立欄位或固定 schema
+
 ## Satisfaction
 
 對 Intended Continuation 而言, 邊界後仍可取得的脈絡應足以使接續者可靠還原 Continuation State, 判斷其目前仍然有效, 並在不改變主題實質意義與接續方向的情況下繼續 Intended Work
 
 當還原後的理解會誤認目前有效的方向或內容, 遺漏會影響接續的 Open Matters, 恢復已失效方向, 或使接續者採取不再有效的下一步時, 即構成 material distortion
 
+將 Decision, assumption, Open Proposal, Open Matter 或 Agent inference 互相誤認, 且因此改變有效方向, 允許行動或必要 alignment 時, 也構成 material distortion
+
 ## Boundaries
 
 `Continuable` 不要求保存 original intent, 完整對話, activity history, decision history 或 discussion process
 
 歷史內容只有在仍具有 current governing force, 或必須保留 supersession fact 才能避免錯誤接續時, 才屬於 Continuation State
+
+承載 Continuation State 的 representation 可以同時包含 supporting rationale, reference examples, provenance 或 history; 只要 Continuation State 可被明確辨識, 額外內容不形成 competing current state, 也不造成 material distortion
 
 `Continuable` 不要求主題已 resolved, 對最終目標 Well-Specified, self-contained 或只有一個 Valid Next Move
 
