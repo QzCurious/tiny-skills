@@ -51,4 +51,4 @@ Continuation State 應提供以下 semantic coverage:
 
 依賴接續者無法取得的 private memory, temporary context, history 或權限, 不能使主題對該 Intended Continuation 成立 Continuable
 
-`Continuable` 不規定特定 schema, persistence mechanism, Context Artifact 或 Artifact Carrier。對一項 Intended Continuation 成立, 不表示對所有接續情境皆成立
+`Continuable` 不規定特定 schema 或 persistence mechanism。對一項 Intended Continuation 成立, 不表示對所有接續情境皆成立

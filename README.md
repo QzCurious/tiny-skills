@@ -48,6 +48,8 @@ codex plugin marketplace remove tiny-skills-marketplace
 .
 ├── .agents/plugins/marketplace.json
 ├── .codex-plugin/plugin.json
+├── drafts/
+│   └── <proposal>.md
 ├── skills/
 │   └── <skill-name>/SKILL.md
 ├── CONTEXT.md
@@ -55,6 +57,7 @@ codex plugin marketplace remove tiny-skills-marketplace
 ```
 
 - `CONTEXT.md`: 共享語言與 canonical definitions
+- `drafts/`: 尚未納入正式共同語言, canonical definition 或 Skill 的非權威提案
 - `OPERATING-MODEL.md`: Agent 運作與 Skill 編寫原則
 - `skills/`: 可由 Codex 安裝與使用的 skills
 

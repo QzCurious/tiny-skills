@@ -37,14 +37,14 @@ description: Project an evolving topic into its canonical Continuation State and
 
 ## Materialize
 
-以 Intended Continuation 的接續者在邊界後可取得的 Context Artifacts 承載 canonical Continuation State
+使 canonical Continuation State 成為 Intended Continuation 的接續者於邊界後可取得, 且能辨識為目前有效狀態的脈絡
 
-首次建立或寫入前, 依 repository rules 與 User 對齊內容種類, 範圍與 Artifact Carrier。取得共識後可在既定範圍內持續維護; 擴大內容種類或範圍, 或更換 Artifact Carrier 前, 應重新對齊。需要 local carrier 時, 使用 `Use a Local Artifact Carrier`
+若邊界後可取得的脈絡不足以支援此狀態, 或所需寫入未獲授權, 使用 `Align Intent`
 
-避免建立彼此競爭的 current-state copies。若存在多個 surfaces, 明確其 authority 與用途, 並維持一個可辨識的 canonical current state
+避免建立彼此競爭的 current-state copies。若存在多個 representations, 明確其 authority 與用途, 並維持一個可辨識的 canonical current state
 
 ## Retire
 
 當主題進入 Possible End State 時, reconcile 最後的 Continuation State, 並依已定 Exit Conditions 完成, 終止, 封存, 取代或轉移到 successor topic。若 end state 或後續處理仍不明確, 使用 `Align Intent`
 
-每次維護循環在 canonical Continuation State 已反映目前有效結論, 且 Intended Continuation 的接續者能從邊界後可取得的 Context Artifacts 不失真地繼續 Intended Work 時完成。持續維護在主題退休或 User 終止維護時結束
+每次維護循環在 canonical Continuation State 已反映目前有效結論, 且 Intended Continuation 的接續者能從邊界後可取得的脈絡不失真地繼續 Intended Work 時完成。持續維護在主題退休或 User 終止維護時結束
