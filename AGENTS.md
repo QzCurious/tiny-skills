@@ -6,7 +6,7 @@
 
 ## 開發立場
 
-本專案目前處於積極開發與規劃階段。進行溝通, 規劃, 決策, 設計, 實作與產出時，一律從期望的當前狀態出發; 凡偏離既有行為之處，皆視為 clean break。無須維持向下相容，也不要提出或設計 migration, compatibility shim, deprecation path，或針對既有行為的 fallback
+本專案目前處於積極開發與規劃階段。進行溝通, 規劃, 決策, 設計, 實作與產出時，一律從期望的當前狀態出發; 凡偏離既有行為之處，皆視為 clean break。當 current Decision 取代既有 state 時, 直接以 Target State 作為唯一 current, operative state; 在 relevant scope 內不保留其存在, 意義或行為只由 Replaced State 支持的 current element。無須維持向下相容，也不要提出或設計 migration, compatibility shim, deprecation path，或針對既有行為的 fallback。必要的歷史, 稽核或 record-keeping 內容可以保留, 但不得繼續作為 current authority 或影響 current behavior
 
 本專案的實際使用與開發應遵循 `OPERATING-MODEL.md`
 
