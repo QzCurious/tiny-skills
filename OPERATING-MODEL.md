@@ -12,5 +12,10 @@
 - 在當前意義允許的範圍內，讓每個 Skill 保持最小
 - 將供應商特定行為與中繼資料置於標準 Skill 欄位之外，且僅在具體整合確有需要時加入
 - 從 Skill 的 name 與 description 開始。僅在 description 無法涵蓋其完整意義時，才加入正文
-- 當目前的 Skill 要求組合其他 Skill，或其明定條件使其他 Skill 成為必要時，組合使用這些 Skill
+- Skill 的 authored meaning 應明確表達會實質約束其 owned actions 的 Precondition, 以及定義成功完成的 material Postcondition; 不要求兩者成對存在, 固定 heading 或固定 schema
+- 進入受 Precondition 約束的 action 前, 先從目前可取得的對話, 明示來源, 可存取的文件與紀錄, handoff, 專案慣例與環境判斷該 condition 是否成立; 不得將資訊缺失視為成立, 也不得只因某個上游 Skill 未在目前脈絡中執行就判定 condition 不成立
+- Precondition 優先描述 governed action 所需的 current state, 而非要求特定 process history。其他 Skill 通常只是建立或釐清該 condition 的可用路徑; 只有當先前 action 的發生本身具有不可替代的 governing effect, side effect 或履行義務時, 才將該 action 的發生列為 Precondition
+- 當 Precondition 尚無法判定時, 先使用 `Ground in Context`; grounding 後若仍存在會實質改變結果的 intent ambiguity, 使用 `Align Intent`。當 condition 已知未成立且可在現有 authority 與 scope 內建立時, 使用能建立或釐清該 condition 的正式 Skill 或由目前 Skill 處理; 否則在 governed action 前停止並指出缺少的 condition, 影響與有效下一步
+- 宣稱 action 成功完成前, 應可靠建立其 material Postcondition 已成立。Skill 可以在其他 terminal state 停止而不滿足成功 Postcondition, 但不得將該停止狀態宣稱為成功完成
+- 當目前 Skill 需要組合其他 Skill 時, 先辨識需要建立或釐清的 condition, 再選擇 authored meaning 能處理該 condition 的正式 Skill; 不以固定 Skill sequence 取代 condition-level reasoning
 - 細化未充分說明的輸入時，保留 User 的原始方向
