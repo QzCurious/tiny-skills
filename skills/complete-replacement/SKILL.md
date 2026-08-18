@@ -9,7 +9,7 @@ description: 當 current governing Decision 已明確以 target state 取代 rep
 
 ## Preconditions
 
-在改變受 replacement 影響的 subject 前, 從目前可取得的脈絡可靠建立:
+在開始執行 replacement 前, 確認:
 
 - replacement 有 current governing Decision 作為依據
 - replacement 對此次 Intended Work 為 `Well-Specified`, 包括 target state, replaced state, full affected scope, material exclusions 與 retention obligations
