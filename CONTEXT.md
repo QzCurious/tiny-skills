@@ -13,11 +13,16 @@
 **Skill Draft**:
 一項尚未在 `description` 或正文中具備足夠編寫意義, 因而無法讓 Agent 可靠套用的 Skill 提案, 是 Draft 的一種。
 
+**Governed Action**:
+一項其實質執行受到目前有效 authored meaning 規範的 action。相對於該 Governed Action 的 Precondition 描述進入實質執行前必須成立的 current state; Postcondition 描述該 action 可被視為成功完成時必須成立的 resulting state。
+
+一個 Skill 可以包含一項或多項 Governed Actions。Tool call, implementation step 或其他操作不因被執行就自動成為 Governed Action; 只有當 authored meaning 對該 action 的進入, 執行或完成具有 material governing effect 時才屬之。
+
 **Precondition**:
-一項相對於特定 action 的必要 condition; 在該 action 進入實質執行前, 此 condition 必須成立。Precondition 描述 action 所要求的 current state, 不規定如何建立該狀態。Property assertion, authoritative fact, Decision, permission, capability, resource, environmental state 或其他 material condition 都可以作為 Precondition。
+一項相對於特定 Governed Action 的必要 condition; 在該 Governed Action 進入實質執行前, 此 condition 必須成立。Precondition 描述該 action 所要求的 current state, 不規定如何建立該狀態。Property assertion, authoritative fact, Decision, permission, capability, resource, environmental state 或其他 material condition 都可以作為 Precondition。
 
 **Postcondition**:
-一項相對於特定 action 的結果 condition; 該 action 只有在此 condition 成立時, 才能被視為成功完成。Postcondition 描述成功完成所要求的 resulting state, 不規定如何建立或驗證該狀態。Property assertion 或其他 material condition 都可以作為 Postcondition。
+一項相對於特定 Governed Action 的結果 condition; 該 Governed Action 只有在此 condition 成立時, 才能被視為成功完成。Postcondition 描述成功完成所要求的 resulting state, 不規定如何建立或驗證該狀態。Property assertion 或其他 material condition 都可以作為 Postcondition。
 
 **Intended Work**:
 目前預期進行的下一個有界工作範圍, 例如探索, 決策, 設計, 實作, review 或交接。它不是下一個 atomic action; 當一個對象或主題需要支援後續工作時, Intended Work 界定此次工作中哪些意義, 資訊, 條件與選擇會實質影響能否可靠進行。
