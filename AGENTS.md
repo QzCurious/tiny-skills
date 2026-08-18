@@ -25,6 +25,12 @@
 
 ## Repository workflow
 
+目前 `tiny-skills` 以 Codex plugin root 作為 distribution boundary; `.codex-plugin/plugin.json` 的 `skills` 只指定 Skill discovery path, 不把 `skills/` 視為唯一的 plugin content。共同語言與 canonical definitions 維持在 plugin root 的單一 authority 位置; 不為 individual Skill packaging 複製 shared definitions
+
+當正式內容需要明示同一 plugin 內的 canonical file 時, 使用 plugin-root-relative path, 例如 `CONTEXT.md`, `properties/well-specified.md`; 不使用以 Skill directory 為基準的 `../../...`
+
+不為 shared semantics 建立 dependency manifest 或其他 dependency system; Agent 依共同語言, canonical references 與可取得脈絡辨識所需 definitions
+
 處理 Draft 時:
 
 - 尚未成為正式共同語言, canonical definition 或 Skill 的提案存放於 `drafts/`
