@@ -19,21 +19,26 @@ description: Project an evolving topic into its canonical Continuation State and
 
 ## Reconcile
 
-當討論, 修正, 決定或方向改變使接續狀態發生變化時, reconcile canonical Continuation State:
+當討論, 修正, 決定, authoritative fact 或方向改變使接續狀態發生變化時, reconcile canonical Continuation State:
 
-- 納入新成立且仍影響接續的結果
-- 更新 Continuation Direction 與 Current State
-- 重新分類 Open Matters
-- 更新 Valid Next Moves 與 Possible End States
+- 納入新成立且仍影響接續的 authoritative facts, Decisions 與其他結果
+- 更新 Continuation Direction 與 Current State, 使其反映目前 governing state
+- 新增, 移除或重新分類 Open Matters
+- 從 Current State 推導, 更新或移除 Valid Next Moves
+- 推導或更新由目前 governing state 支持的 Possible End States 與 Exit Conditions
 - 移除或明確取代已失效內容
 
 維護 `Continuable` 定義的 semantic coverage, 但不要求固定 heading 或 schema
 
-## Preserve Authority
+## Preserve Status and Authority
 
-區分 Decisions, assumptions, Open Proposals, Open Matters 與 Agent inference。只有經 User 明確確認的內容才能記錄為 Decision; 不得將沉默, 繼續討論, 部分同意或 Agent 推導視為完整定案
+依 `CONTEXT.md` 保留各項內容目前的 status, applicable authority 與 material provenance。只有由 applicable Decision Authority 建立的內容才能記錄為 Decision; 不得把 proposal, assumption, Agent inference, 沉默, 繼續討論或其他未形成 governing Decision 的狀態投影成 Decision
 
-不要為了形成完整敘述而自行解決未決事項。保留仍會影響接續的歧義, blocker 與 competing directions, 並準確表達其目前狀態
+對 user-directed topic, 若沒有其他 Decision Authority 已成立, User 預設具有會改變 intent, scope, priority, acceptance criteria 或 Continuation Direction 等 material choice 的 Decision Authority。不要因此要求 User 再確認 independently authoritative facts, 或把 User 視為所有 domain facts 的 authority
+
+Agent 可以依已成立的 Decisions, authoritative facts 與其他 governing state reconcile Continuation State, 包括重新表達 Continuation Direction, 維護 Open Matters, 推導 Valid Next Moves, Possible End States 與其 Exit Conditions。這些 projection 或 inference 不會自行建立 governing authority
+
+若一項更新會新增或改變尚未由 applicable authority 決定的 material intent, scope, acceptance criteria, governing direction 或其他 material choice, 保持其 open status, 不要為了形成完整敘述自行解決; 在需要該 Decision 才能繼續時, 使用 `Align Intent` 與 applicable authority 對齊
 
 ## Materialize
 
@@ -45,6 +50,6 @@ description: Project an evolving topic into its canonical Continuation State and
 
 ## Retire
 
-當主題進入 Possible End State 時, reconcile 最後的 Continuation State, 並依已定 Exit Conditions 完成, 終止, 封存, 取代或轉移到 successor topic。若 end state 或後續處理仍不明確, 使用 `Align Intent`
+當主題進入 Possible End State 時, reconcile 最後的 Continuation State, 並依目前有效的 Exit Conditions 完成, 終止, 封存, 取代或轉移到 successor topic。若是否進入 end state 仍取決於未決的 material choice, 保持其 open status 並交由 applicable Decision Authority 決定
 
 每次維護循環在 canonical Continuation State 已反映目前有效結論, 且 Intended Continuation 的接續者能從邊界後可取得的脈絡不失真地繼續 Intended Work 時完成。持續維護在主題退休或 User 終止維護時結束

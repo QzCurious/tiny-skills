@@ -18,7 +18,7 @@ Continuable 必須相對於明確或可合理推定的 Intended Continuation 判
 
 當還原後的理解會誤認目前有效的方向或內容, 遺漏會影響接續的 Open Matters, 恢復已失效方向, 或使接續者採取不再有效的下一步時, 即構成 material distortion
 
-當 Continuation State 中的 authority status 被誤認, 且因此改變有效方向, 允許行動或必要 alignment 時, 也構成 material distortion
+當 Continuation State 中內容的 status, applicable authority 或 material provenance 被誤認, 且因此改變有效方向, 允許行動或必要 alignment 時, 也構成 material distortion
 
 ## Boundaries
 

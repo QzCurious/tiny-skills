@@ -31,12 +31,16 @@
 Continuation State 應提供以下 semantic coverage:
 
 - `Continuation Direction`: 目前有效的接續方向及其範圍
-- `Current State`: 目前成立並影響後續的結果, Decisions, constraints, assumptions 與必要的 supersession facts
+- `Current State`: 目前成立並影響後續的結果, authoritative facts, Decisions, constraints, assumptions 與必要的 supersession facts
 - `Open Matters`: 仍會影響接續的 open questions, open proposals, blockers, deferred branches 與 decision points
 - `Valid Next Moves`: 從 Current State 可採取的有效下一步及其必要條件
 - `Possible End States`: 目前有效的完成, 終止, 封存, 取代或其他結束狀態, 以及必要的 Exit Conditions
 
-這些是理解 Continuation State 的 semantic dimensions, 不是互斥欄位, 固定 heading 或必要 schema。Continuation State 也必須保留各項內容目前的 authority status, 包括哪些內容是 Decisions, assumptions, Open Proposals, Open Matters 或 Agent inference; Authority status 橫跨上述 semantic dimensions, 不是獨立欄位或固定 schema。
+這些是理解 Continuation State 的 semantic dimensions, 不是互斥欄位, 固定 heading 或必要 schema。
+
+Continuation State 也必須在會影響接續時保留各項內容目前的 status, applicable authority 與 material provenance。Status 包括 Decision, assumption, Open Proposal, Open Matter, Agent inference 或其他 relevant state; applicable authority 表示能使該內容成立, 改變或失效的 actor, source, process 或 governing representation; material provenance 表示判斷, 還原或 reconcile 該內容所需的來源或 derivation。這些資訊橫跨上述 semantic dimensions, 不是額外 classification, 獨立欄位或固定 schema。
+
+一項內容只有在由 applicable Decision Authority 建立時才能作為 Decision。對 user-directed topic, 若沒有其他 Decision Authority 已成立, User 預設具有會改變 intent, scope, priority, acceptance criteria 或 Continuation Direction 等 material choice 的 Decision Authority; 此預設不使 User 成為 independently authoritative facts 的 authority。
 
 Continuation State 不保存對 Intended Continuation 已無 operative effect 的 origin, process history 或 discussion history。過去形成的內容只有在仍具有 current governing force, 或必須作為 supersession fact 防止恢復失效方向時才保留。
 
