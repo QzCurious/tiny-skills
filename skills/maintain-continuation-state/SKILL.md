@@ -5,11 +5,9 @@ description: Project an evolving topic into its canonical Continuation State and
 
 # Maintain Continuation State
 
-當現有脈絡不足以可靠理解主題時, 先使用 `Ground in Context`
-
 ## Establish Intended Continuation
 
-辨識要延續的主題與 Intended Continuation, 包括 Continuation Boundary, 預期接續者, 邊界後可取得的脈絡與權限, 以及 Intended Work。若可低後果地由現有脈絡推定, 直接採用; 當不同理解會實質改變所需狀態或接續方式時, 使用 `Align Intent`
+辨識要延續的主題與 Intended Continuation, 包括 Continuation Boundary, 預期接續者, 邊界後可取得的脈絡與權限, 以及 Intended Work。Intended Continuation 必須足以判斷此次維護需要保存哪些 state 與如何 materialize; 當不同理解會實質改變所需狀態或接續方式, 且 applicable authority 尚未建立 governing interpretation 時, 不自行選擇會 material 改變結果的方向
 
 ## Initialize
 
@@ -38,13 +36,13 @@ description: Project an evolving topic into its canonical Continuation State and
 
 Agent 可以依已成立的 Decisions, authoritative facts 與其他 governing state reconcile Continuation State, 包括重新表達 Continuation Direction, 維護 Open Matters, 推導 Valid Next Moves, Possible End States 與其 Exit Conditions。這些 projection 或 inference 不會自行建立 governing authority
 
-若一項更新會新增或改變尚未由 applicable authority 決定的 material intent, scope, acceptance criteria, governing direction 或其他 material choice, 保持其 open status, 不要為了形成完整敘述自行解決; 在需要該 Decision 才能繼續時, 使用 `Align Intent` 與 applicable authority 對齊
+若一項更新會新增或改變尚未由 applicable authority 決定的 material intent, scope, acceptance criteria, governing direction 或其他 material choice, 保持其 open status, 不要為了形成完整敘述自行解決。當該 Decision 成為後續 Governed Action 的 material Precondition 時, 必須先依運作模型建立 readiness, 再進入受影響的 action
 
 ## Materialize
 
 使 canonical Continuation State 成為 Intended Continuation 的接續者於邊界後可取得, 且能辨識為目前有效狀態的脈絡
 
-若邊界後可取得的脈絡不足以支援此狀態, 或所需寫入未獲授權, 使用 `Align Intent`
+進入 materialization 前, 邊界後可取得的 representation 必須足以承載所需 state, 且 Agent 必須具有必要寫入 authority。若任一 material Precondition 尚未成立, 不以不完整或未授權寫入冒充 materialization; 先依運作模型建立 readiness, 或在 Blocked 時保留明確的阻礙與有效解除路徑
 
 避免建立彼此競爭的 current-state copies。若存在多個 representations, 明確其 authority 與用途, 並維持一個可辨識的 canonical current state
 
