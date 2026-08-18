@@ -7,11 +7,7 @@ description: 僅在 User 明確要求, 或 active caller Skill 的 authored mean
 
 此 Skill 只在明確 invocation 後執行; 不因 code smell, complexity, disagreement, Agent 發現其他方案, 或推測可能適用而自行觸發
 
-一次 invocation 可以跨越多個 Agent/User turn。缺少 material basis, 存在 intent ambiguity, 或需要 material decision 都不等於 invocation 結束; 只要相關 condition 仍可建立，就應先補足並繼續。Agent 向 User 請求必要資訊或決策後可以形成 interactive pause; 當前 response 可以結束，但 Skill lifecycle 尚未結束
-
-此 Skill 以以下 state machine 作為 canonical control-flow backbone。Transition label 採 UML-style notation `trigger [guard] / effect`; 未需要 trigger 或 effect 時可以省略。正文說明各 state 內應如何判斷與行動; 不另行建立與 state machine 衝突的 control flow
-
-所有 `<<choice>>` state 的 outgoing guards 在 relevant material scope 內必須 mutually exclusive 且 collectively exhaustive; 任一時點只能選擇一條有效 transition，且所有有效情況都必須有可走的 transition
+以下 state machine 是此 Skill 的 canonical control-flow backbone
 
 ## State Machine
 
@@ -80,9 +76,9 @@ stateDiagram-v2
 
 優先從可取得的 context 建立 condition，不要求 User 重複已可取得的資訊
 
-當 material gap 無法由現有來源解決，但 User 可能補足時，向 User surface 最小必要問題。User 的回答是正常的 state transition trigger，不視為新的 Skill invocation; 在等待回答期間形成 interactive pause，而不是 terminal state
+當 material gap 無法由現有來源解決，但 User 可能補足時，向 User surface 最小必要問題並停留在此 state
 
-取得新 basis 後回到 `建立評估基礎`，重新判斷 condition 是否足夠; 不因已經做過 grounding 或 alignment 就假設 condition 必然成立
+取得新的 material basis 後回到 `建立評估基礎`，重新判斷 condition 是否足夠; 不因已經做過 grounding 或 alignment 就假設 condition 必然成立
 
 Recovery loop 只在新的 context, clarification 或 User input 仍可能實質改變下一次 guard 判斷時繼續。不要因為仍可提出更多問題就無限延長 invocation; 若已不存在能建立必要 condition 的有效路徑，必須進入 `收束`
 
@@ -133,8 +129,6 @@ Decision Authority 做出決定後，將該 Decision 視為新的 authoritative 
 
 Proper Decision Authority 可以選擇不同於 Agent recommendation 的方向。此時應依新的 authoritative state 繼續，不把「authority 決定保留原方向」誤寫成「Agent 評估後 reaffirm 原方向」
 
-等待 Decision Authority 回應時可以形成 interactive pause，但不能因此把 `decision required` 當成 result 或視為 Skill 已經結束
-
 ## 收束
 
 每次 invocation 必須經由此 state transition 到 final state `[*]`; 只有 `Conclude --> [*]` 才是此 Skill lifecycle 的 end point
@@ -167,15 +161,11 @@ Target approach 可能是 Agent recommendation，也可能反映 Decision Author
 
 明確指出哪個 condition 未成立, 為何目前無法建立, 它如何阻礙 reliable continuation, 以及什麼改變可以使後續 invocation 再次有效進入流程
 
-不得將 `Blocked` 宣稱為成功完成
-
 ### Deferred
 
 User 明確停止, redirect 或 defer 仍可繼續的 reframing
 
 保留目前已建立的 material conclusion 與仍未解決的 condition，使之後重新 invocation 時不需要不必要地重建已知 state
-
-不得將 `Deferred` 宣稱為成功完成
 
 `Reaffirmed current approach` 與 `Aligned target approach` 是 success results; `Blocked` 與 `Deferred` 是合法 terminal results，但不滿足成功完成的 Postcondition
 

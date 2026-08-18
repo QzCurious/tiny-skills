@@ -17,5 +17,10 @@
 - Precondition 優先描述 governed action 所需的 current state, 而非要求特定 process history。其他 Skill 通常只是建立或釐清該 condition 的可用路徑; 只有當先前 action 的發生本身具有不可替代的 governing effect, side effect 或履行義務時, 才將該 action 的發生列為 Precondition
 - 當 Precondition 尚無法判定時, 先使用 `Ground in Context`; grounding 後若仍存在會實質改變結果的 intent ambiguity, 使用 `Align Intent`。當 condition 已知未成立且可在現有 authority 與 scope 內建立時, 使用能建立或釐清該 condition 的正式 Skill 或由目前 Skill 處理; 否則在 governed action 前停止並指出缺少的 condition, 影響與有效下一步
 - 宣稱 action 成功完成前, 應可靠建立其 material Postcondition 已成立。Skill 可以在其他 terminal state 停止而不滿足成功 Postcondition, 但不得將該停止狀態宣稱為成功完成
+- 當 Skill 具有明確 lifecycle, conditional branching, recovery loop, cross-turn interaction, interactive pause 或多種 terminal result 時, 優先考慮以 state machine 作為 control-flow backbone, 並以 UML-style state diagram 表達; 簡單線性的 Skill 不為形式而建立 state machine
+- State diagram 主要承載 control flow, 正文主要補充各 state 與 transition 的 semantics; state 表達具有 control-flow 意義的 current state 或 phase, 不把每個 atomic action 都建成 state。當正文開始大量使用 if, otherwise, return-to, wait-for 等 lifecycle prose 時, 優先考慮將其提升為 state machine
+- Transition 需要時使用 UML-style `trigger [guard] / effect`; condition-based branching 可使用 `<<choice>>`; 一個 choice 若代表完整 decision boundary, outgoing guards 在 relevant material scope 內應 mutually exclusive 且 collectively exhaustive
+- 等待 User, Decision Authority 或其他外部輸入時, 以 ordinary state 表達 interactive pause; request, consultation 或 report 本身通常是 transition trigger 或 effect, 等待其結果才形成 waiting state
+- 以 state machine 編寫的 Skill 應有明確 initial entry 與至少一條可達 final state 的有效路徑; invocation 只有在 transition 到 final state 後才結束, response 在中間 state 結束不代表 Skill lifecycle 結束
 - 當目前 Skill 需要組合其他 Skill 時, 先辨識需要建立或釐清的 condition, 再選擇 authored meaning 能處理該 condition 的正式 Skill; 不以固定 Skill sequence 取代 condition-level reasoning
 - 細化未充分說明的輸入時，保留 User 的原始方向
