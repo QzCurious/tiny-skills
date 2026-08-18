@@ -10,9 +10,7 @@
 
 ## Evaluation Context
 
-`Intended Work` 是目前預期由該對象支援的下一個有界工作範圍, 例如探索, 決策, 設計, 實作, review 或交接。它不是下一個 atomic action, 而是判斷哪些資訊與選擇會實質影響此次工作的 evaluation context
-
-Well-Specified 必須相對於明確或可合理推定的 Intended Work 判斷。同一個對象可以足以支援某項工作, 但不足以支援另一項工作。當不同 Intended Work interpretation 會改變所需的明確程度, 允許結果或工作邊界時, 應先釐清 Intended Work; 不得在缺少工作範圍時宣稱對象普遍 Well-Specified
+Well-Specified 必須相對於明確或可合理推定的 Intended Work 判斷。同一個對象可以足以支援某項 Intended Work, 但不足以支援另一項。當不同 Intended Work interpretation 會改變所需的明確程度, 允許結果或工作邊界時, 應先釐清 Intended Work; 不得在缺少工作範圍時宣稱對象普遍 Well-Specified
 
 ## Satisfaction
 
