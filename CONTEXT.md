@@ -27,15 +27,17 @@
 **Intended Work**:
 目前預期進行的下一個有界工作範圍, 例如探索, 決策, 設計, 實作, review 或交接。它不是下一個 atomic action; 當一個對象或主題需要支援後續工作時, Intended Work 界定此次工作中哪些意義, 資訊, 條件與選擇會實質影響能否可靠進行。
 
-**Intended Continuation**:
-一個主題預期跨越暫停或交接邊界後的有界接續情境, 包括預期跨越的 Continuation Boundary, 預期接續者, 邊界後仍可取得的脈絡與權限, 以及預期繼續的 Intended Work。
+**Continuation Scenario**:
+一個主題跨越暫停或交接邊界後的有界接續情境, 作為判斷 `Continuable` 的 evaluation context。它包括預期跨越的 Continuation Boundary, 預期接續者, 邊界後仍可取得的脈絡與 capabilities 或 permissions, 以及預期繼續的 Intended Work。
+
+Continuation Scenario 只需要明確到足以判斷此次接續需要哪些 state 與 materialization 條件。若其中某項條件可由邊界後穩定可取得的脈絡可靠推定, 不要求另外重述。
 
 **Continuation State**:
-一個主題目前有效, 且足以支援 Intended Continuation 的 canonical current-state semantic model。它不等同於承載它的整份 representation, 並只反映仍會影響接續的內容。
+一個主題目前有效, 且足以支援 Continuation Scenario 的 canonical current-state semantic model。它不等同於承載它的整份 representation, 並只反映仍會影響接續的內容。
 
 Continuation State 應提供以下 semantic coverage:
 
-- `Continuation Direction`: 目前有效的接續方向及其範圍
+- `Orientation`: 目前仍有效、足以讓接續者理解這是什麼主題, 為什麼正在處理, 希望達成什麼的 governing framing; 包括 subject, current motivation 或 starting point, intended outcome, 以及有 material relevance 時的 scope 或 non-goals。Orientation 不保存已無 current governing force 的 historical origin
 - `Current State`: 目前成立並影響後續的結果, authoritative facts, Decisions, constraints, assumptions 與必要的 supersession facts
 - `Open Matters`: 仍會影響接續的 open questions, open proposals, blockers, deferred branches 與 decision points
 - `Valid Next Moves`: 從 Current State 可採取的有效下一步及其必要條件
@@ -45,9 +47,9 @@ Continuation State 應提供以下 semantic coverage:
 
 Continuation State 也必須在會影響接續時保留各項內容目前的 status, applicable authority 與 material provenance。Status 包括 Decision, assumption, Open Proposal, Open Matter, Agent inference 或其他 relevant state; applicable authority 表示能使該內容成立, 改變或失效的 actor, source, process 或 governing representation; material provenance 表示判斷, 還原或 reconcile 該內容所需的來源或 derivation。這些資訊橫跨上述 semantic dimensions, 不是額外 classification, 獨立欄位或固定 schema。
 
-一項內容只有在由 applicable Decision Authority 建立時才能作為 Decision。對 user-directed topic, 若沒有其他 Decision Authority 已成立, User 預設具有會改變 intent, scope, priority, acceptance criteria 或 Continuation Direction 等 material choice 的 Decision Authority; 此預設不使 User 成為 independently authoritative facts 的 authority。
+一項內容只有在由 applicable Decision Authority 建立時才能作為 Decision。對 user-directed topic, 若沒有其他 Decision Authority 已成立, User 預設具有會改變 intent, scope, priority, acceptance criteria 或其他由 Orientation 反映的 material governing framing 的 Decision Authority; 此預設不使 User 成為 independently authoritative facts 的 authority。
 
-Continuation State 不保存對 Intended Continuation 已無 operative effect 的 origin, process history 或 discussion history。過去形成的內容只有在仍具有 current governing force, 或必須作為 supersession fact 防止恢復失效方向時才保留。
+Continuation State 不保存對 Continuation Scenario 已無 operative effect 的 origin, process history 或 discussion history。過去形成的內容只有在仍具有 current governing force, 或必須作為 supersession fact 防止恢復失效方向時才保留。
 
 Issue, 文件, 對話脈絡或其他 representation 都可以承載 Continuation State, 也可以同時包含 supporting rationale, reference examples, provenance 或 history; 只要 Continuation State 可被明確辨識, 額外內容不形成 competing current state, 也不造成 material distortion。
 
@@ -56,6 +58,6 @@ Issue, 文件, 對話脈絡或其他 representation 都可以承載 Continuation
 
 已知的 Property:
 
-- **Continuable**: 主題目前有效的接續狀態可在 Intended Continuation 中被不失真地還原並延續; canonical definition 見 `properties/continuable.md`
+- **Continuable**: 主題目前有效的 Continuation State 可在 Continuation Scenario 中被不失真地還原並延續; canonical definition 見 `properties/continuable.md`
 - **Clear Reading Path**: 結構化內容能讓預期讀者依理解所需逐步建立脈絡; canonical definition 見 `properties/clear-reading-path.md`
 - **Well-Specified**: 對象的相關工作能可靠繼續, 而不需要猜測會實質改變結果的資訊; canonical definition 見 `properties/well-specified.md`
