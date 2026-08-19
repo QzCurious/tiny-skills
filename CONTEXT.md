@@ -38,14 +38,13 @@ Continuation Scenario 只需要明確到足以判斷此次接續需要哪些 sta
 Continuation State 應提供以下 semantic coverage:
 
 - `Orientation`: 目前仍有效、足以讓接續者理解這是什麼主題, 為什麼正在處理, 希望達成什麼的 governing framing; 包括 subject, current motivation 或 starting point, intended outcome, 以及有 material relevance 時的 scope 或 non-goals。Orientation 不保存已無 current governing force 的 historical origin
-- `Current State`: 目前成立並影響後續的結果, authoritative facts, Decisions, constraints, assumptions 與必要的 supersession facts
-- `Open Matters`: 仍會影響接續的 open questions, open proposals, blockers, deferred branches 與 decision points
-- `Valid Next Moves`: 從 Current State 可採取的有效下一步及其必要條件
+- `Current State`: 目前成立並影響後續的結果, authoritative facts, Decisions, constraints, assumptions, validation 或 investigation results, 以及必要的 supersession facts
+- `Unresolved`: 目前仍會影響接續, 但尚未 settled 的事項, 包括 open questions, decision points, pending validation, research 或 work, open proposals, blockers 與 deferred matters。每個 item 應在 material relevant 時保留目前的 resolution status, 已知 resolution path 與必要條件, 或目前不存在有效 resolution path 的事實; 不要求每個 item 都已有 next move。當 item resolved 後, 將仍具 continuation relevance 的結果 reconcile 到 Current State; 若結果已不再 relevant, 直接 retire
 - `Possible End States`: 目前有效的完成, 終止, 封存, 取代或其他結束狀態, 以及必要的 Exit Conditions
 
 這些是理解 Continuation State 的 semantic dimensions, 不是互斥欄位, 固定 heading 或必要 schema。
 
-Continuation State 也必須在會影響接續時保留各項內容目前的 status, applicable authority 與 material provenance。Status 包括 Decision, assumption, Open Proposal, Open Matter, Agent inference 或其他 relevant state; applicable authority 表示能使該內容成立, 改變或失效的 actor, source, process 或 governing representation; material provenance 表示判斷, 還原或 reconcile 該內容所需的來源或 derivation。這些資訊橫跨上述 semantic dimensions, 不是額外 classification, 獨立欄位或固定 schema。
+Continuation State 也必須在會影響接續時保留各項內容目前的 status, applicable authority 與 material provenance。Status 包括 Decision, assumption, Open Proposal, Agent inference, pending, blocked, deferred 或其他 relevant state; applicable authority 表示能使該內容成立, 改變或失效的 actor, source, process 或 governing representation; material provenance 表示判斷, 還原或 reconcile 該內容所需的來源或 derivation。這些資訊橫跨上述 semantic dimensions, 不是額外 classification, 獨立欄位或固定 schema。
 
 一項內容只有在由 applicable Decision Authority 建立時才能作為 Decision。對 user-directed topic, 若沒有其他 Decision Authority 已成立, User 預設具有會改變 intent, scope, priority, acceptance criteria 或其他由 Orientation 反映的 material governing framing 的 Decision Authority; 此預設不使 User 成為 independently authoritative facts 的 authority。
 
