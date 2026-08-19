@@ -11,7 +11,7 @@ description: 將建立或修改 Skill 的意圖設計成 AI Agent 可可靠套�
 
 從 name 與 description 開始設計。讓 description 說明 Skill 定義的行為，以及應觸發它的各種實質情境；只有當 AI Agent 仍需要額外的步驟、判斷、約束或完成條件才能可靠套用時，才加入正文
 
-辨識 Skill 所擁有的 material Governed Actions, 以及會實質約束各 Governed Action 的 Precondition 與定義成功完成的 material Postcondition。Precondition 與 Postcondition 分別依自身意義設計，不要求成對存在，也不要求固定 heading。當 Precondition 未成立或尚無法判定時, 先辨識真正缺少的 condition; 依運作模型由目前 Skill 已明確擁有的 behavior 建立, 使用 `Prepare for Next Step`, 或組合 authored meaning 能建立或釐清該 condition 的正式 Skill; 不以固定 Skill sequence 取代 condition-level reasoning
+辨識 Skill 所擁有的 material Governed Actions, 以及會實質約束各 Governed Action 的 Precondition 與定義成功完成的 material Postcondition。當 authored meaning 對明確 governed lifecycle 或 subject 的 applicable states 具有持續 condition 時, 同時辨識 material Invariant。Precondition, Postcondition 與 Invariant 分別依自身意義設計, 不要求成對存在，也不要求固定 heading。當 Precondition 未成立或尚無法判定時, 先辨識真正缺少的 condition; 依運作模型由目前 Skill 已明確擁有的 behavior 建立, 使用 `Prepare for Next Step`, 或組合 authored meaning 能建立或釐清該 condition 的正式 Skill; 不以固定 Skill sequence 取代 condition-level reasoning
 
 讓產出的 authored meaning 具有 `Clear Reading Path`。從 name 與 description 建立整體 orientation，再依概念關係安排必要正文; 不依固定模板或機械的執行順序編排。正文可以依賴 name 與 description 已建立的意義，不必為了自成一體而重述它們
 
@@ -25,6 +25,7 @@ description: 將建立或修改 Skill 的意圖設計成 AI Agent 可可靠套�
 - 哪些 material Preconditions 約束哪些 Governed Actions
 - unresolved Precondition 如何建立, 或在何種 condition 下停止於受影響 Governed Action 前
 - 哪些 material Postconditions 定義成功完成
+- 哪些 material Invariants 約束哪些 governed lifecycle 或 subject states
 - 它允許哪些其他結果與終止狀態
 - 哪些既有正式 Skills 能建立或釐清所需 conditions
 - 它能否獨立被使用，或應留在另一個 Skill 內
