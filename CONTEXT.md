@@ -27,36 +27,38 @@
 **Intended Work**:
 目前預期進行的下一個有界工作範圍, 例如探索, 決策, 設計, 實作, review 或交接。它不是下一個 atomic action; 當一個對象或主題需要支援後續工作時, Intended Work 界定此次工作中哪些意義, 資訊, 條件與選擇會實質影響能否可靠進行。
 
-**Continuation Scenario**:
-一個主題跨越暫停或交接邊界後的有界接續情境, 作為判斷 `Continuable` 的 evaluation context。它包括預期跨越的 Continuation Boundary, 預期接續者, 邊界後仍可取得的脈絡與 capabilities 或 permissions, 以及預期繼續的 Intended Work。
+**Continuation Basis**:
+為可靠繼續某項 Intended Work 需要取得, 依據或具備的 declarative basis。它描述 reliable continuation 所依賴的 material context, 不規定 Agent 如何取得該 context, 也不要求固定 schema 或單一 representation。
 
-Continuation Scenario 只需要明確到足以判斷此次接續需要哪些 state 與 materialization 條件。若其中某項條件可由邊界後穩定可取得的脈絡可靠推定, 不要求另外重述。
+Intended Work 是 Continuation Basis 的 constituent semantic。Repository, issue, document, conversation context, source identity, revision, authority, capability, permission 或其他 context 只有在 materially 影響 reliable continuation 時才需要成為 Basis 的一部分。Source identity, version, revision 或 reference point 若本身具有 material reference semantics, 可以直接成為 Basis; Agent resolve mutable source 時得到的普通當下 observation 預設只是 ephemeral execution context。
 
 **Continuation State**:
-一個主題目前有效, 且足以支援 Continuation Scenario 的 canonical current-state semantic model。它不等同於承載它的整份 representation, 並只反映仍會影響接續的內容。
+一個 topic 為支援 applicable Continuation Basis 與 Intended Work 所需的 canonical current-state semantic model。它不等同於承載它的整份 representation, 並只反映仍具有 continuation effect 的內容。
 
-Continuation State 應提供以下 semantic coverage:
+Continuation State 具有三個 primitive semantic dimensions:
 
-- `Orientation`: 目前仍有效、足以讓接續者理解這是什麼主題, 為什麼正在處理, 希望達成什麼的 governing framing; 包括 subject, current motivation 或 starting point, intended outcome, 以及有 material relevance 時的 scope 或 non-goals。Orientation 不保存已無 current governing force 的 historical origin
-- `Current State`: 目前成立並影響後續的結果, authoritative facts, Decisions, constraints, assumptions, validation 或 investigation results, 以及必要的 supersession facts
-- `Unresolved`: 目前仍會影響接續, 但尚未 settled 的事項, 包括 open questions, decision points, pending validation, research 或 work, open proposals, blockers 與 deferred matters。每個 item 應在 material relevant 時保留目前的 resolution status, 已知 resolution path 與必要條件, 或目前不存在有效 resolution path 的事實; 不要求每個 item 都已有 next move。當 item resolved 後, 將仍具 continuation relevance 的結果 reconcile 到 Current State; 若結果已不再 relevant, 直接 retire
-- `Possible End States`: 目前有效的完成, 終止, 封存, 取代或其他結束狀態, 以及必要的 Exit Conditions
+- `Motivation`: 目前處理 topic 的 governing reason 與 intended outcome。Topic identity 本身不屬於 Motivation
+- `Established State`: 目前已形成, 仍 materially relevant, 且接續工作應據此理解或行動的內容。Decision, authoritative fact, assumption, Agent inference, validation result, constraint, scope, non-goal, supersession fact 或其他 current semantics 依其實際 status 存在; Established State 不表示其中每項內容都已證明為 true 或具有相同 authority
+- `Unresolved`: 目前仍 materially relevant, 且其 resolution 本身仍需要被處理的 matters, 例如 open question, decision point, pending validation, blocker, deferred matter 或尚未完成的 material work。已建立的 scope 或 non-goal 屬於 Established State; 尚未決定而其 resolution 仍會影響接續時屬於 Unresolved
 
 這些是理解 Continuation State 的 semantic dimensions, 不是互斥欄位, 固定 heading 或必要 schema。
 
-Continuation State 也必須在會影響接續時保留各項內容目前的 status, applicable authority 與 material provenance。Status 包括 Decision, assumption, Open Proposal, Agent inference, pending, blocked, deferred 或其他 relevant state; applicable authority 表示能使該內容成立, 改變或失效的 actor, source, process 或 governing representation; material provenance 表示判斷, 還原或 reconcile 該內容所需的來源或 derivation。這些資訊橫跨上述 semantic dimensions, 不是額外 classification, 獨立欄位或固定 schema。
+Continuation State 也必須在會影響接續時保留各項內容目前的 status, applicable authority 與 material provenance。這些資訊橫跨上述 semantic dimensions, 不是額外 primitive dimension, classification 或固定欄位。
 
-一項內容只有在由 applicable Decision Authority 建立時才能作為 Decision。對 user-directed topic, 若沒有其他 Decision Authority 已成立, User 預設具有會改變 intent, scope, priority, acceptance criteria 或其他由 Orientation 反映的 material governing framing 的 Decision Authority; 此預設不使 User 成為 independently authoritative facts 的 authority。
+一項內容只有在由 applicable Decision Authority 建立時才能作為 Decision。對 user-directed topic, 若沒有其他 Decision Authority 已成立, User 預設具有會改變 intent, scope, priority, acceptance criteria 或其他 material governing framing 的 Decision Authority; 此預設不使 User 成為 independently authoritative facts 的 authority。
 
-Continuation State 不保存對 Continuation Scenario 已無 operative effect 的 origin, process history 或 discussion history。過去形成的內容只有在仍具有 current governing force, 或必須作為 supersession fact 防止恢復失效方向時才保留。
+Completion, termination, supersession, archive, transfer 或其他 topic lifecycle semantics 不形成固定 Continuation State dimension。當它們 materially 影響接續時, 依其 semantic role 投影到 Motivation, Established State 或 Unresolved。
 
-Issue, 文件, 對話脈絡或其他 representation 都可以承載 Continuation State, 也可以同時包含 supporting rationale, reference examples, provenance 或 history; 只要 Continuation State 可被明確辨識, 額外內容不形成 competing current state, 也不造成 material distortion。
+Continuation State 不保存已無 continuation effect 的 origin, process history, activity history 或 discussion history。過去形成的內容只有在仍具有 current governing force, 或必須作為 supersession fact 防止恢復失效方向時才保留。
+
+Issue, 文件, 對話脈絡或其他 representation 都可以承載 Continuation State, 也可以由多個可取得來源共同承載。額外 supporting rationale, reference examples, provenance 或 history 可以存在; 只要 current Continuation State 能從 applicable Continuation Basis 被可靠還原, 額外內容不形成 competing current state 或 material distortion。
+
+`Continuable` 是正式 Skill, 其 authored behavior 見 `skills/continuable/SKILL.md`。它不再作為 Property; 目前也不另建立同名或替代名稱的 continuability Predicate。若實際使用顯示該 semantic condition 在多個獨立 Governed Actions 或 Skills 中形成 reusable need, 再另行評估是否提煉為 Predicate。
 
 **Property**:
 對一個對象可被辨識的性質或條件，不規定建立、維護或改善該性質的特定方法。Skill 可以要求、建立、維護、改善或評估 Property。
 
 已知的 Property:
 
-- **Continuable**: 主題目前有效的 Continuation State 可在 Continuation Scenario 中被不失真地還原並延續; canonical definition 見 `properties/continuable.md`
 - **Clear Reading Path**: 結構化內容能讓預期讀者依理解所需逐步建立脈絡; canonical definition 見 `properties/clear-reading-path.md`
 - **Well-Specified**: 對象的相關工作能可靠繼續, 而不需要猜測會實質改變結果的資訊; canonical definition 見 `properties/well-specified.md`
