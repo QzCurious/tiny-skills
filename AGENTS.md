@@ -27,7 +27,7 @@
 
 目前 `tiny-skills` 以 Codex plugin root 作為 distribution boundary; `.codex-plugin/plugin.json` 的 `skills` 只指定 Skill discovery path, 不把 `skills/` 視為唯一的 plugin content。共同語言與 canonical definitions 維持在 plugin root 的單一 authority 位置; 不為 individual Skill packaging 複製 shared definitions
 
-當正式內容需要明示同一 plugin 內的 canonical file 時, 使用 plugin-root-relative path, 例如 `CONTEXT.md`, `properties/well-specified.md`; 不使用以 Skill directory 為基準的 `../../...`
+當正式內容需要明示同一 plugin 內的 canonical file 時, 使用 plugin-root-relative path, 例如 `CONTEXT.md`, `predicates/well-specified.md`; 不使用以 Skill directory 為基準的 `../../...`
 
 不為 shared semantics 建立 dependency manifest 或其他 dependency system; Agent 依共同語言, canonical references 與可取得脈絡辨識所需 definitions
 
@@ -39,11 +39,11 @@
 修改 Skill 前:
 
 - 閱讀 `CONTEXT.md`，理解共享語言
-- 閱讀與該 Skill 實質相關的 canonical Property definitions
+- 閱讀與該 Skill 實質相關的 canonical Predicate definitions
 - 閱讀 `OPERATING-MODEL.md`，理解編寫原則
 
-修改 Property 前:
+修改 Predicate 前:
 
-- 閱讀 `CONTEXT.md`，確認 Property 在共同語言中的定位
-- 閱讀 `OPERATING-MODEL.md`，理解 Property 與 Skill 的分工
-- 以 `properties/` 中對應檔案作為該 Property 的 canonical definition
+- 閱讀 `CONTEXT.md`，確認 Predicate 在共同語言中的定位
+- 閱讀 `OPERATING-MODEL.md`，理解 Predicate 與 Skill, contract roles 的分工
+- 以 `predicates/` 中對應檔案作為該 Predicate 的 canonical definition

@@ -2,7 +2,7 @@
 
 Tiny Skills 是一組可組合的 Agent Skills, 用於發展個人 agent operating model
 
-本 repository 同時是 Codex plugin marketplace 與 `tiny-skills` plugin 的來源。安裝 `tiny-skills` plugin 時, plugin root 是 distribution boundary; `.codex-plugin/plugin.json` 的 `skills` 指定 `skills/` 作為 Skill discovery path, `CONTEXT.md`, `properties/` 與其他 plugin-level files 仍屬同一 plugin
+本 repository 同時是 Codex plugin marketplace 與 `tiny-skills` plugin 的來源。安裝 `tiny-skills` plugin 時, plugin root 是 distribution boundary; `.codex-plugin/plugin.json` 的 `skills` 指定 `skills/` 作為 Skill discovery path, `CONTEXT.md`, `predicates/` 與其他 plugin-level files 仍屬同一 plugin
 
 ## 安裝至 Codex
 
@@ -50,8 +50,8 @@ codex plugin marketplace remove tiny-skills-marketplace
 ├── .codex-plugin/plugin.json
 ├── drafts/
 │   └── <proposal>.md
-├── properties/
-│   └── <property-name>.md
+├── predicates/
+│   └── <predicate-name>.md
 ├── skills/
 │   └── <skill-name>/SKILL.md
 ├── AGENTS.md
@@ -60,10 +60,10 @@ codex plugin marketplace remove tiny-skills-marketplace
 ```
 
 - `AGENTS.md`: repository 使用與開發指引
-- `CONTEXT.md`: 共享語言, general shared term canonical definitions 與 Property registry
+- `CONTEXT.md`: 共享語言, general shared term canonical definitions 與 Predicate registry
 - `drafts/`: 尚未納入正式共同語言, canonical definition 或 Skill 的非權威提案
 - `OPERATING-MODEL.md`: Agent 運作與 Skill 編寫原則
-- `properties/`: Property canonical definitions
+- `predicates/`: Predicate canonical definitions
 - `skills/`: Codex discovery 與使用的正式 Skills
 
 ## 本地驗證

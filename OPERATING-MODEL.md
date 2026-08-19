@@ -4,20 +4,21 @@
 - 不將 Draft 視為共同語言, canonical definition, 運作規則或可用 Skill; 正式行為不得依賴 Draft 的內容或存在
 - 優先使用已知最具體的詞彙，而非廣泛的上位詞彙
 - 透過實際使用持續精進運作模型。當專案工作顯示共同語言有所缺漏、歧義、重疊或已不再適用時，在相關決策點或工作收尾時，提示 User 是否要新增、修改或刪除共同語言或其 canonical definitions
-- 區分 Skill 與 Property: Skill 定義 Agent 行為; Property 描述對象可具有的性質，且不規定特定實踐方法
-- `CONTEXT.md` 承載共同語言中未另有 canonical definition file 的 term definitions; 這些 term 不因此形成額外 classification。`CONTEXT.md` 同時負責辨識與索引已知 Property; `properties/` 中對應檔案承載該 Property 的 canonical definition
-- Skill 可以要求、建立、維護、改善或評估 Property; 由各 Skill 依自身責任決定如何實踐
-- 當多個獨立 Skill 重複追求同一結果性質，且其實踐方法可以不同時，優先考慮將該結果性質提煉為 Property
+- 區分 Skill 與 Predicate: Skill 定義 Agent 行為; Predicate 定義 reusable named semantic condition, 不規定該 condition 何時必須成立或如何建立
+- `CONTEXT.md` 承載共同語言中未另有 canonical definition file 的 term definitions; 這些 term 不因此形成額外 classification。`CONTEXT.md` 同時負責辨識與索引已知 Predicate; `predicates/` 中對應檔案承載 individual Predicate 的 canonical definition
+- Skill 可以在 authored meaning 中使用 Predicate 作為 shared condition, 並依自身責任建立, 維護, 改善或評估該 condition; Predicate 本身不規定實踐方法
+- 當同一 semantic condition 需要被多個獨立 Skill, Governed Action, contract 或其他 authored meaning 重複辨識, 或其名稱本身對共同語言具有持續價值時, 優先考慮將它提煉為 Predicate; 只在局部脈絡中有意義的 condition 保持 ordinary material condition
 - 預設依穩定版 Agent Skills specification 編寫 Skill
 - 在當前意義允許的範圍內，讓每個 Skill 保持最小
 - 將供應商特定行為與中繼資料置於標準 Skill 欄位之外，且僅在具體整合確有需要時加入
 - 從 Skill 的 name 與 description 開始。僅在 description 無法涵蓋其完整意義時，才加入正文
-- Skill 的 authored meaning 應辨識其 material Governed Actions, 並明確表達會實質約束各 Governed Action 的 Precondition, 以及定義成功完成的 material Postcondition; 不要求每項 Governed Action 都具有兩者, 也不要求固定 heading 或固定 schema
+- Skill 的 authored meaning 應辨識其 material Governed Actions, 並明確表達會實質約束各 Governed Action 的 Precondition, 以及定義成功完成的 material Postcondition; 當 authored meaning 對明確 governed lifecycle 或 subject 的 applicable states 具有持續 condition 時, 明確表達 material Invariant。不要求每項 Governed Action 都具有 Precondition 與 Postcondition, 也不要求固定 heading 或固定 schema
 - 進入 Governed Action 的實質執行前, 先從目前可取得的對話, 明示來源, 可存取的文件與紀錄, handoff, 專案慣例與環境判斷其 material Preconditions 是否成立; 不得將資訊缺失視為成立, 也不得只因某個上游 Skill 未在目前脈絡中執行就判定 condition 不成立
 - Precondition 優先描述 Governed Action 所需的 current state, 而非要求特定 process history。其他 Skill 或先前 action 通常只是建立或釐清該 condition 的可用路徑; 只有當先前 action 的發生本身具有不可替代的 governing effect, side effect 或履行義務時, 才將該 action 的發生列為 Precondition
 - 當 target Governed Action 已可辨識, 但至少一項 material Precondition 尚未確認成立時, 使用 `Prepare for Next Step`, 除非目前 Skill 的 authored meaning 已明確擁有該 condition 的建立或釐清行為。依 unresolved condition 建立所需 current state, 必要時取得相關脈絡, 與 applicable authority 互動或組合其他正式 Skill, 並重新評估直到 Governed Action Ready 或 Blocked; 不以固定 resolution sequence 取代 condition-level reasoning
 - `Prepare for Next Step` 不負責發現, 選擇, 規劃或排列接下來的 Governed Action; active Skill 仍依自身 authored meaning, current state 與 applicable authority 決定其 owned actions 與後續方向
 - 宣稱 Governed Action 成功完成前, 應可靠建立其 material Postcondition 已成立。Skill 可以在其他 terminal state 停止而不滿足成功 Postcondition, 但不得將該停止狀態宣稱為成功完成
+- 對 authored meaning 指定為 Invariant applicable 的 lifecycle 或 subject states, 該 condition 必須持續成立; 不以暫時違反後再修回作為符合 Invariant 的實踐
 - 當 Skill 具有明確 lifecycle, conditional branching, recovery loop, cross-turn interaction, interactive pause 或多種 terminal result 時, 優先考慮以 state machine 作為 control-flow backbone, 並以 UML-style state diagram 表達; 簡單線性的 Skill 不為形式而建立 state machine
 - State diagram 主要承載 control flow, 正文主要補充各 state 與 transition 的 semantics; state 表達具有 control-flow 意義的 current state 或 phase, 不把每個 atomic action 都建成 state。當正文開始大量使用 if, otherwise, return-to, wait-for 等 lifecycle prose 時, 優先考慮將其提升為 state machine
 - Transition 需要時使用 UML-style `trigger [guard] / effect`; condition-based branching 可使用 `<<choice>>`; 一個 choice 若代表完整 decision boundary, outgoing guards 在 relevant material scope 內應 mutually exclusive 且 collectively exhaustive

@@ -13,16 +13,33 @@
 **Skill Draft**:
 一項尚未在 `description` 或正文中具備足夠編寫意義, 因而無法讓 Agent 可靠套用的 Skill 提案, 是 Draft 的一種。
 
+**Predicate**:
+一個 first-class shared semantic abstraction, 用來表達 reusable named semantic condition。Predicate 的 authored meaning 指定它適用的 subject 與 material evaluation context, 並描述在具體 evaluation 中該 condition 何時成立或不成立。
+
+Evaluation context 可以包含 evaluation inputs, basis 與 relevant current state。這些是 semantic dependencies, 不要求以 implementation-level function signature, fixed schema 或 method interface 表達。
+
+Predicate 定義 what condition is true; 不規定該 condition 何時必須成立, 也不規定如何建立, 維護或改善。Precondition, Postcondition, Invariant 可以使用 named Predicate, 也可以直接使用 ordinary material condition。
+
+當同一 semantic condition 需要在多個獨立 Skill, Governed Action, contract 或其他 authored meaning 中重複辨識, 或其名稱本身對共同語言具有持續價值時, 優先考慮將它提煉為 Predicate。只在局部脈絡中有意義的 condition 保持 ordinary material condition。
+
+已知的 Predicate:
+
+- **Clear Reading Path**: 結構化內容能讓預期讀者依理解所需逐步建立脈絡; canonical definition 見 `predicates/clear-reading-path.md`
+- **Well-Specified**: 對象的相關工作能可靠繼續, 而不需要猜測會實質改變結果的資訊; canonical definition 見 `predicates/well-specified.md`
+
 **Governed Action**:
 一項其實質執行受到目前有效 authored meaning 規範的 action。相對於該 Governed Action 的 Precondition 描述進入實質執行前必須成立的 current state; Postcondition 描述該 action 可被視為成功完成時必須成立的 resulting state。
 
 一個 Skill 可以包含一項或多項 Governed Actions。Tool call, implementation step 或其他操作不因被執行就自動成為 Governed Action; 只有當 authored meaning 對該 action 的進入, 執行或完成具有 material governing effect 時才屬之。
 
 **Precondition**:
-一項相對於特定 Governed Action 的必要 condition; 在該 Governed Action 進入實質執行前, 此 condition 必須成立。Precondition 描述該 action 所要求的 current state, 不規定如何建立該狀態。Property assertion, authoritative fact, Decision, permission, capability, resource, environmental state 或其他 material condition 都可以作為 Precondition。
+一項相對於特定 Governed Action 的必要 condition; 在該 Governed Action 進入實質執行前, 此 condition 必須成立。Precondition 描述該 action 所要求的 current state, 不規定如何建立該狀態。Named Predicate 所描述的 condition, authoritative fact, Decision, permission, capability, resource, environmental state 或其他 material condition 都可以作為 Precondition。
 
 **Postcondition**:
-一項相對於特定 Governed Action 的結果 condition; 該 Governed Action 只有在此 condition 成立時, 才能被視為成功完成。Postcondition 描述成功完成所要求的 resulting state, 不規定如何建立或驗證該狀態。Property assertion 或其他 material condition 都可以作為 Postcondition。
+一項相對於特定 Governed Action 的結果 condition; 該 Governed Action 只有在此 condition 成立時, 才能被視為成功完成。Postcondition 描述成功完成所要求的 resulting state, 不規定如何建立或驗證該狀態。Named Predicate 所描述的 condition 或其他 material condition 都可以作為 Postcondition。
+
+**Invariant**:
+一項相對於明確 governed lifecycle 或 subject 的必要 condition; authored meaning 指定為 applicable 的所有 states 都必須滿足該 condition。Invariant 可以使用 named Predicate 或 ordinary material condition, 不限定於單一 Governed Action, 也不採「可以暫時違反再修回」的 authored meaning。
 
 **Intended Work**:
 目前預期進行的下一個有界工作範圍, 例如探索, 決策, 設計, 實作, review 或交接。它不是下一個 atomic action; 當一個對象或主題需要支援後續工作時, Intended Work 界定此次工作中哪些意義, 資訊, 條件與選擇會實質影響能否可靠進行。
@@ -53,12 +70,4 @@ Continuation State 不保存已無 continuation effect 的 origin, process histo
 
 Issue, 文件, 對話脈絡或其他 representation 都可以承載 Continuation State, 也可以由多個可取得來源共同承載。額外 supporting rationale, reference examples, provenance 或 history 可以存在; 只要 current Continuation State 能從 applicable Continuation Basis 被可靠還原, 額外內容不形成 competing current state 或 material distortion。
 
-`Continuable` 是正式 Skill, 其 authored behavior 見 `skills/continuable/SKILL.md`。它不再作為 Property; 目前也不另建立同名或替代名稱的 continuability Predicate。若實際使用顯示該 semantic condition 在多個獨立 Governed Actions 或 Skills 中形成 reusable need, 再另行評估是否提煉為 Predicate。
-
-**Property**:
-對一個對象可被辨識的性質或條件，不規定建立、維護或改善該性質的特定方法。Skill 可以要求、建立、維護、改善或評估 Property。
-
-已知的 Property:
-
-- **Clear Reading Path**: 結構化內容能讓預期讀者依理解所需逐步建立脈絡; canonical definition 見 `properties/clear-reading-path.md`
-- **Well-Specified**: 對象的相關工作能可靠繼續, 而不需要猜測會實質改變結果的資訊; canonical definition 見 `properties/well-specified.md`
+`Continuable` 是正式 Skill, 其 authored behavior 見 `skills/continuable/SKILL.md`。目前不另建立同名或替代名稱的 continuability Predicate。若實際使用顯示該 semantic condition 在多個獨立 Governed Actions 或 Skills 中形成 reusable need, 再另行評估是否提煉為 Predicate。

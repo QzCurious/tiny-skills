@@ -2,7 +2,7 @@
 
 ## Meaning
 
-`Well-Specified` 是一個對象相對於 Intended Work 的一種 Property: 對該工作而言, 會實質改變結果的意義, 範圍, 條件與允許的選擇空間已足夠明確, 使工作能在既定意義內可靠進行, 而不必以猜測補足實質缺口
+`Well-Specified` 是一個對象相對於 Intended Work 的 Predicate: 對該工作而言, 會實質改變結果的意義, 範圍, 條件與允許的選擇空間已足夠明確, 使工作能在既定意義內可靠進行, 而不必以猜測補足實質缺口
 
 ## Applies To
 
@@ -22,12 +22,12 @@ Well-Specified 必須相對於明確或可合理推定的 Intended Work 判斷�
 - 判斷採取的行動與產出是否仍符合既定意義和允許的選擇空間
 - 不必自行選擇未被支持, 且會實質改變結果的解讀
 
-未知事項或多種可能解法本身不違反此 Property。只要它們不影響 Intended Work, 或其保留方式與選擇權限已足夠明確, 對象仍可為 Well-Specified
+未知事項或多種可能解法本身不違反此 Predicate。只要它們不影響 Intended Work, 或其保留方式與選擇權限已足夠明確, 對象仍可為 Well-Specified
 
 ## Boundaries
 
 `Well-Specified` 不等同於 exhaustive specification, 完整細節, 最終定案, 單一解法, 無彈性, 已取得共識, 已獲批准, 正確或可行
 
-`Well-Specified` 與 `Continuable` 不同: `Continuable` 關心跨處理邊界後能否不失真地還原如何繼續; `Well-Specified` 關心 Intended Work 能否在不補足實質意義的情況下可靠進行
+`Well-Specified` 與 `Continuable` Skill 不同: `Continuable` 在 User invocation scope 內維持 topic 的 current continuation semantics, 使工作能從 applicable Continuation Basis 可靠接續; `Well-Specified` 關心 Intended Work 能否在不補足實質意義的情況下可靠進行
 
-此 Property 不規定細化, 研究, 對齊或決策的特定方法
+此 Predicate 不規定細化, 研究, 對齊或決策的特定方法
