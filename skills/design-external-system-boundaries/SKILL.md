@@ -1,6 +1,6 @@
 ---
 name: design-external-system-boundaries
-description: 當建立, 修改或檢視 application 與 third-party HTTP API, operating-system facility, command-line tool, SDK 或其他 external system 之間的 API client, platform client, provider client, wrapper 或 integration facade 時使用
+description: 當建立, 修改或檢視 application 對 third-party HTTP API, operating-system facility, command-line tool 或其他 external system 的 API client, platform client, provider client, SDK integration, wrapper 或 integration facade 時使用
 ---
 
 # Design External-System Boundaries
@@ -19,11 +19,11 @@ Boundary 可以由既有 SDK 或 external-system client 直接構成, 也可以�
 
 ### Current-needed surface
 
-只 expose current callers 需要的 capabilities, inputs, values, outcomes, failure distinctions 與 diagnostic facts。不為尚未使用的 endpoints, hypothetical provider replacement, 未確立的平台, SDK 全量 coverage 或 speculative abstraction 預先建模
+只 expose current use 需要的 capabilities, inputs, values, outcomes, failure distinctions 與 diagnostic facts。不為尚未使用的 endpoints, hypothetical provider replacement, 未確立的平台, SDK 全量 coverage 或 speculative abstraction 預先建模
 
 ### External-system semantics
 
-Public operations 與 results 描述 external system 能做什麼, 回報什麼或實際發生了什麼; 不直接 expose raw transport mechanics, 也不將 external facts 翻譯成 application decisions。Operation 可以組合多次 protocol interaction, 只要 resulting semantic 仍是一項 coherent external operation 或 observation
+Exposed operations 與 results 描述 external system 能做什麼, 回報什麼或實際發生了什麼; 不直接 expose raw transport mechanics, 也不將 external facts 翻譯成 application decisions。Operation 可以組合多次 protocol interaction, 只要 resulting semantic 仍是一項 coherent external operation 或 observation
 
 ### Client fidelity and use-oriented composition
 
@@ -76,4 +76,4 @@ Test seam 可以是 transport, local test server, command runner, SDK subset, in
 - relevant semantic outcomes 可由 tests 控制, 並由適當 seam 的 tests 保護
 - known evidence conflicts, unresolved contract questions 或無法驗證的 material surfaces 已明確揭露
 
-檢視 boundary 只有在 findings 以相同 Invariants 為判準, 並以 concrete evidence 說明 affected semantics, caller 或 operator consequence, 以及最小且 current-use-grounded 的改善方向時才算完成。不因一個 operation 包含多次 external calls, client 與 facade 位於同一 package, 或 public API 使用 SDK types 就自動判定需拆分或重寫; 不因缺少 external documentation 就 degrade 既有程式所呈現的 material behavior。若沒有 material violation, 明確結論為不需改動
+檢視 boundary 只有在 findings 以相同 Invariants 為判準, 並以 concrete evidence 說明 affected semantics, caller 或 operator consequence, 以及最小且 current-use-grounded 的改善方向時才算完成。不因一個 operation 包含多次 external calls, client 與 facade 位於同一 package, 或 exposed API 使用 SDK types 就自動判定需拆分或重寫; 不因缺少 external documentation 就 degrade 既有程式所呈現的 material behavior。若沒有 material violation, 明確結論為不需改動
