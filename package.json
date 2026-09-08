@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "validate": "nub scripts/validate-skills.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "release": "nub scripts/release.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
