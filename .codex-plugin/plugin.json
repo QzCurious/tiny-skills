@@ -1,0 +1,15 @@
+{
+  "name": "tiny-skills",
+  "version": "0.2.0",
+  "description": "可組合的 Agent Skills, 用於釐清意圖, 建立脈絡, 設計 Skills 與延續工作狀態",
+  "author": {
+    "name": "QzCurious"
+  },
+  "repository": "https://github.com/QzCurious/tiny-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tiny Skills",
+    "shortDescription": "以可組合的 Skills 發展個人 agent operating model",
+    "category": "Productivity"
+  }
+}
